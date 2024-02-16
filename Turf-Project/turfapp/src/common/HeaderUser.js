@@ -1,7 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function HeaderUser() {
+   const history=useNavigate();
+  const logout=()=>{
+    localStorage.removeItem("userlogin");
+    alert("User logged out Successfully");
+    history("/");
+   
+  }
+
   return (
     <>
       
@@ -32,11 +40,20 @@ export default function HeaderUser() {
                 <Link to="/" className="nav-item nav-link ">
                   Home
                 </Link>
+                <Link to="/about" className="nav-item nav-link">
+                  About
+                </Link>
+                <Link to="/services" className="nav-item nav-link">
+                  Services
+                </Link>
+                <Link to="/contact" className="nav-item nav-link">
+                  Contact
+                </Link>
                 <Link to="/myBooking" className="nav-item nav-link">
                   My BooKing
                 </Link>
               </div>
-              <Link to= "#" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">
+              <Link to= "#" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" onClick={logout}>
                   <small className="me-3" >
                   <i className="fa fa-user me-2" />
                     Logout

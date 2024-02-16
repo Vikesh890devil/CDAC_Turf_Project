@@ -69,7 +69,7 @@ const router = createBrowserRouter([
             element:<Displayallusers />
           },
           {
-            path:"/*",
+            path:"/error",
             element:<Error404 />
           },
 

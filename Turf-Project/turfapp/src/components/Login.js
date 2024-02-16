@@ -2,8 +2,10 @@ import React, {useRef} from 'react';
 import UserService from '../Services/UserService';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const history=useNavigate();
   const username = useRef();
   const password = useRef();
 
@@ -17,12 +19,15 @@ export default function Login() {
     console.log(res.data);
     if(res.data===true){
       alert("success full login");
+      localStorage.setItem("userlogin",JSON.stringify(Users));
+      history("/myBooking",)
     }else{
       alert("failed to login");
     }
   }).catch((err)=>{
     alert("failed to login"+err.message);
   })
+  
   };
   return (
     <>
@@ -42,10 +47,12 @@ export default function Login() {
                   <h2>New User</h2>
                   <p>
                     If you're looking for a concise and engaging line for a turf signup form, you might consider something like:
-                  </p><button type='button' className='btn btn-success'>
-                    <a href="/register" className="btn_3">
-                      Create an Account
-                    </a>
+                  </p>
+                  <button type='button' className='btn btn-success'>
+                    <Link to="/register" className="btn_3">
+                         Create an Account
+                    </Link>
+                   
                   </button>
                 </div>
               </div>

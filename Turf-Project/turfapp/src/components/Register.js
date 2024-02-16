@@ -1,10 +1,33 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import UserService from '../Services/UserService';
-import { Link, redirect } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 
 export default function Register() {
+
+  const history = useNavigate();
+  const [inpval, setinpval] = useState({
+    Name: "",
+    age: "",
+    mobileNo: "",
+    username: "",
+    password: ""
+  });
+  const [data, setdata] = useState([]);
+
+  const getdata = (e) => {
+
+    const { value, name } = e.target;
+
+    setinpval(() => {
+      return {
+        ...inpval,
+        [name]: value
+      }
+    })
+  }
+
   const Name = useRef();
   const age = useRef();
   const mobileNo = useRef();
@@ -21,15 +44,15 @@ export default function Register() {
       password: password.current.value
     }
     UserService.addUser(Users).then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       alert('sucessfully added');
-      console.log(res.status);
-      // if(res.status===200){
-      // <redirect from="/register" to="/login" />
-      // }      
+      //console.log(res.status);
+      localStorage.setItem("registerData", JSON.stringify([...data, inpval]));
+      history('/login');
     }).catch((err) => {
       console.log(err);
       alert('Faild to add user');
+
     });
   };
   return (
@@ -43,7 +66,7 @@ export default function Register() {
         </div>
       </div>
       {/* Header End */}
-      <form  className='form-control'>
+      <form className='form-control'>
         <div className='container' >
           <div className='row' >
             <div className='col-3 pt-5'></div>
@@ -60,6 +83,7 @@ export default function Register() {
                     name='Name'
                     ref={Name}
                     placeholder="Enter the full name"
+                    onChange={getdata}
                   />
                 </div>
 
@@ -73,6 +97,7 @@ export default function Register() {
                     placeholder="Enter your age"
                     name='age'
                     ref={age}
+                    onChange={getdata}
                   />
 
 
@@ -88,7 +113,7 @@ export default function Register() {
                     name='mobileNo'
                     placeholder="Enter the number"
                     ref={mobileNo}
-
+                    onChange={getdata}
                   />
                 </div>
 
@@ -102,6 +127,7 @@ export default function Register() {
                     name='username'
                     placeholder="Enter the your username"
                     ref={username}
+                    onChange={getdata}
                   />
                 </div>
 
@@ -110,7 +136,10 @@ export default function Register() {
                     Password
                   </label>
                   <input type="password" className="form-control" name='password1'
-                    placeholder="Enter the your password" />
+                    placeholder="Enter the your password"
+                    onChange={getdata}
+                  />
+
                 </div>
 
                 <div className="col-md-6">
@@ -118,7 +147,9 @@ export default function Register() {
                     Comform Password
                   </label>
                   <input type="password" className="form-control" name='password'
-                    placeholder="Enter the conform password" ref={password} />
+                    placeholder="Enter the conform password" ref={password}
+                    onChange={getdata}
+                  />
                 </div>
 
                 <div className="col-12">
@@ -127,10 +158,10 @@ export default function Register() {
                   </button>
                 </div>
                 <div className="col-12">
-                <Link to="/displayallusers"><button className="btn btn-primary w-100 ">
-                       display  All users
-                       </button>
-               </Link>
+                  <Link to="/displayallusers"><button className="btn btn-primary w-100 ">
+                    display  All users
+                  </button>
+                  </Link>
                 </div>
               </form>
             </div>
