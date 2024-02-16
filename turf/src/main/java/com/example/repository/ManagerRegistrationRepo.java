@@ -7,4 +7,6 @@ import com.example.entity.ManagerRegistration;
 public interface ManagerRegistrationRepo extends JpaRepository<ManagerRegistration, Integer> {
 
 	ManagerRegistration findByUsername(String username);
+
+	
 }

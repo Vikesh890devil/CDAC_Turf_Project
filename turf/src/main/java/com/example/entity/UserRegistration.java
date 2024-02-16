@@ -1,6 +1,7 @@
 package com.example.entity;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -8,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -15,7 +17,7 @@ import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "user_details", uniqueConstraints = @UniqueConstraint(columnNames = { "username" }))
-@SequenceGenerator(name="port_gen",sequenceName="port_gen",initialValue = 100)
+@SequenceGenerator(name = "port_gen", sequenceName = "port_gen", initialValue = 100)
 public class UserRegistration {
 
 	@Id
@@ -26,26 +28,24 @@ public class UserRegistration {
 	private String mobileNo;
 	private String username;
 	private String password;
-	
-	@OneToMany(mappedBy = "user" )
-	private List<Booking>  bookings =new ArrayList<>();
+
+
 
 	public UserRegistration() {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	
 
-	public UserRegistration(int userId, String name, int age, String mobileNo, String username, String password,
-			List<Booking> bookings) {
-		super();
-		this.userId = userId;
-		Name = name;
-		this.age = age;
-		this.mobileNo = mobileNo;
-		this.username = username;
-		this.password = password;
-		this.bookings = bookings;
+	public UserRegistration(int userId, String name, int age, String mobileNo, String username, String password) {
+	super();
+	this.userId = userId;
+	Name = name;
+	this.age = age;
+	this.mobileNo = mobileNo;
+	this.username = username;
+	this.password = password;
 	}
 
 
@@ -99,16 +99,22 @@ public class UserRegistration {
 	}
 
 
+//	public List<Booking> getBookings() {
+//		return bookings;
+//	}
+//
+//
+//	public void setBookings(List<Booking> bookings) {
+//		this.bookings = bookings;
+//	}
 
-	public List<Booking> getBookings() {
-		return bookings;
+
+	@Override
+	public String toString() {
+		return "UserRegistration [userId=" + userId + ", Name=" + Name + ", age=" + age + ", mobileNo=" + mobileNo
+				+ ", username=" + username + ", password=" + password + ", bookings=" /*+ bookings*/ + "]";
 	}
 
-
-
-	public void setBookings(List<Booking> bookings) {
-		this.bookings = bookings;
-	}
 	
-
+	
 }

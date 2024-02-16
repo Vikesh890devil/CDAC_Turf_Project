@@ -1,9 +1,14 @@
 package com.example.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -12,34 +17,38 @@ import jakarta.persistence.UniqueConstraint;
 public class ManagerRegistration {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-	private int userId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int managerId;
 	private String Name;
 	private int age;
 	private String mobileNo;
 	private String username;
 	private String password;
 
+ 
+
 	public ManagerRegistration() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public ManagerRegistration(int userId, String name, int age, String mobileNo, String username, String password) {
-		super();
-		this.userId = userId;
-		Name = name;
-		this.age = age;
-		this.mobileNo = mobileNo;
-		this.username = username;
-		this.password = password;
+	public ManagerRegistration(int managerId, String name, int age, String mobileNo, String username, String password) {
+	super();
+	this.managerId = managerId;
+	Name = name;
+	this.age = age;
+	this.mobileNo = mobileNo;
+	this.username = username;
+	this.password = password;
+}
+
+
+	public int getManagerId() {
+		return managerId;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
 	}
 
 	public String getName() {
@@ -81,5 +90,14 @@ public class ManagerRegistration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ManagerRegistration [managerId=" + managerId + ", Name=" + Name + ", age=" + age + ", mobileNo="
+				+ mobileNo + ", username=" + username + ", password=" + password + "]";
+	}
+
+
 
 }
