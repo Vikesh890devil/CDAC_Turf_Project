@@ -164,7 +164,7 @@
     font-family: 'Roboto', sans-serif;
     position: relative;
     padding: 35px 15px;
-    color: var(--bs-white) !important;
+    
     font-size: 17px;
     font-weight: 400;
     outline: none;
@@ -310,10 +310,7 @@
 }
 
 /*** Carousel Hero Header Start ***/
-.carousel-header .carousel-control-prev,
-.carousel-header .carousel-control-next {
-    background: transparent;
-}
+
 
 .carousel-header .carousel-control-prev .carousel-control-prev-icon {
     position: absolute;
@@ -371,7 +368,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5));
+   
     background-size: cover;
 }
 
@@ -401,7 +398,7 @@
 
 /*** Single Page Hero Header Start ***/
 .bg-breadcrumb {
-    background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../img/breadcrumb-bg.jpg);
+    background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../img/socer5.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -892,7 +889,7 @@
 
 /*** Tour Booking Start ***/
 .booking {
-    background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(../img/tour-booking-bg.jpg);
+    background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(../img/socer6.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1242,6 +1239,12 @@
 .footer .footer-item a:hover {
     letter-spacing: 2px;
     color: var(--bs-primary);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /*** Footer End ***/

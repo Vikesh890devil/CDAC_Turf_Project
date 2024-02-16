@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 
 export default function Service() {
   return (
     <>
+    <Header></Header>
     {/* Header start */}
   <div className="container-fluid bg-breadcrumb">
     <div className="container text-center" style={{ maxWidth: 900 }}>
@@ -165,7 +168,7 @@ export default function Service() {
     </div>
   </div>
   {/* Services End */}
- 
+ <Footer></Footer>
   
 </>
 

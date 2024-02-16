@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 
 export default function About() {
   return (
     <>
+    <Header></Header>
     {/* Header start */}
   <div className="container-fluid bg-breadcrumb">
     <div className="container text-center" style={{ maxWidth: 900 }}>
@@ -18,12 +21,12 @@ export default function About() {
           <div
             className="h-100"
             style={{
-              border: "50px solid",
+              border: "20px solid",
               borderColor: "transparent #13357B transparent #13357B"
             }}
           >
             <img
-              src="img/About-6.avif"
+              src="img/socer8.jpg"
               className="img-fluid w-100 h-100"
               alt=""
             />
@@ -33,7 +36,7 @@ export default function About() {
           className="col-lg-7"
           style={{
             background:
-              "linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/socer1.jpg)"
+              "linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/trufLogo.png)"
           }}
         >
           <h5 className="section-about-title pe-3">About Us</h5>
@@ -115,6 +118,7 @@ export default function About() {
     </div>
   </div>
   {/* About End */}
+  <Footer></Footer>
   
 </>
 

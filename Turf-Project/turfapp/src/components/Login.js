@@ -1,5 +1,7 @@
 import React, {useRef} from 'react';
 import UserService from '../Services/UserService';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 export default function Login() {
   const username = useRef();
@@ -24,6 +26,7 @@ export default function Login() {
   };
   return (
     <>
+    <Header></Header>
       <div className="container-fluid bg-breadcrumb">
         <div className="container text-center" style={{ maxWidth: 900 }}>
           <h3 className="text-white display-3">Login</h3>
@@ -91,6 +94,7 @@ export default function Login() {
         </div>
       </section>
       {/*================login_part end =================*/}
+      <Footer></Footer>
     </>
   );
 }

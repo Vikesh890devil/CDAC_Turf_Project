@@ -1,9 +1,11 @@
 import React from 'react'
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 
 export default function Book() {
   return ( 
     <>
-
+    <Header></Header>
     {/* Header start */}
   <div className="container-fluid bg-breadcrumb">
   <div className="container text-center" style={{ maxWidth: 900 }}>
@@ -119,13 +121,14 @@ export default function Book() {
                         </div>
                         <div className="col-md-6">
                             <div className="form-floating">
-                                <input
-                                    type="number"
-                                    className="form-control bg-white border-0"
-                                    id="email"
-                                    placeholder="Your Email"
-                                />
-                                <label htmlFor="email">Count</label>
+                            <select class="form-select" aria-label="Default select example">
+                            <option selected>Open</option>
+                            <option value="1">9'0 clock - 11'0 clock </option>
+                            <option value="2">12'0 clock - 2'0 clock </option>
+                            <option value="3">4'0 clock  - 6'0 clock </option>
+                            <option value="3">7'0 clock  - 10'0 clock </option>
+                          </select>
+                                <label htmlFor="email">Slot</label>
                             </div>
                         </div>
                         
@@ -149,6 +152,6 @@ export default function Book() {
       <div className="mx-auto text-center mb-1" style={{ maxWidth: 900 }}>
       </div>
     </div>
-  
+  <Footer></Footer>
   </>
   )}

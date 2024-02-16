@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from '../common/Header'
+import Footer from '../common/Footer'
 export default function Error404() {
   return (
     <>
+    <Header></Header>
     <div className="container-fluid bg-breadcrumb">
       <div className="container text-center py-5" style={{ maxWidth: 900 }}>
         <h3 className="text-white display-3 mb-4">404 Page</h3>
@@ -46,6 +49,7 @@ export default function Error404() {
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </>
   
   )

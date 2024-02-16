@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import UserService from '../Services/UserService';
 import { Link, redirect } from 'react-router-dom';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
 
 export default function Register() {
   const Name = useRef();
@@ -32,7 +34,7 @@ export default function Register() {
   };
   return (
     <>
-
+      <Header></Header>
 
       {/* Header start */}
       <div className="container-fluid bg-breadcrumb">
@@ -136,6 +138,7 @@ export default function Register() {
           </div>
         </div>
       </form>
+      <Footer></Footer>
     </>
 
   )
