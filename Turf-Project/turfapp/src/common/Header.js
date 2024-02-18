@@ -41,11 +41,15 @@ export default function Header() {
                 <Link to="/contact" className="nav-item nav-link">
                   Contact
                 </Link>
+                <Link to="/adminLogin" className="nav-item nav-link">
+                  Customer
+                </Link>
+
               </div>
-              <Link to= "/login" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">
+              <Link to= "/register" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">
                   <small className="me-3" >
                   <i className="fa fa-user me-2" />
-                    Login
+                    Register
                   </small>
               </Link>
             </div>

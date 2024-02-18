@@ -30,20 +30,20 @@ export default function Contact() {
                 <address />
               </h4>
               <p className="mb-0">
-                123 ranking Street, <br /> New York, USA
+                123 MET Collage, <br /> Nashik, India
               </p>
             </div>
             <div className="text-center mb-4">
               <i className="fa fa-phone-alt fa-3x text-primary mb-3" />
               <h4 className="text-primary">Mobile</h4>
-              <p className="mb-0">+012 345 67890</p>
-              <p className="mb-0">+012 345 67890</p>
+              <p className="mb-0">+91 9098984980</p>
+              <p className="mb-0">+91 1234567890</p>
             </div>
             <div className="text-center">
               <i className="fa fa-envelope-open fa-3x text-primary mb-3" />
               <h4 className="text-primary">Email</h4>
-              <p className="mb-0">info@example.com</p>
-              <p className="mb-0">info@example.com</p>
+              <p className="mb-0">info@India.com</p>
+              <p className="mb-0">info@MET.com</p>
             </div>
           </div>
         </div>
@@ -52,8 +52,7 @@ export default function Contact() {
           <p className="mb-4">
             The contact form is currently inactive. Get a functional and working
             contact form with Ajax &amp; PHP in a few minutes. Just copy and paste
-            the files, add a little code and you're done.{" "}
-            <a href="https://htmlcodex.com/contact-form">Download Now</a>.
+            the files, add a little code and you're done.
           </p>
           <form>
             <div className="row g-3">
@@ -115,7 +114,7 @@ export default function Contact() {
             <iframe
               className="rounded w-100"
               style={{ height: 450 }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.21356541298!2d73.84763777468883!3d20.041495420955258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddea68870d56c7%3A0xdcdd72fe89fc2e94!2sMET%20Bhujbal%20Knowledge%20City!5e0!3m2!1sen!2sin!4v1708108728040!5m2!1sen!2sin%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22no-referrer-when-downgrade"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

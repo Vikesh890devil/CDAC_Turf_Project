@@ -62,7 +62,7 @@ export default function Register() {
       {/* Header start */}
       <div className="container-fluid bg-breadcrumb">
         <div className="container text-center" style={{ maxWidth: 900 }}>
-          <h3 className="text-white display-3">Register</h3>
+          <h3 className="text-white display-3">User Register</h3>
         </div>
       </div>
       {/* Header End */}
@@ -152,14 +152,17 @@ export default function Register() {
                   />
                 </div>
 
-                <div className="col-12">
+                <div className="col-3">
+                
+
+
                   <button type="submit" className="btn btn-primary w-100 " onClick={handeSubmit} >
                     Sign in
                   </button>
                 </div>
-                <div className="col-12">
-                  <Link to="/displayallusers"><button className="btn btn-primary w-100 ">
-                    display  All users
+                <div className="col-3">
+                  <Link to="/login"><button className="btn btn-primary w-100 ">
+                    Login
                   </button>
                   </Link>
                 </div>

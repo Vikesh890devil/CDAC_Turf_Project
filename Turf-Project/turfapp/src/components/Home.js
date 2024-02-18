@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 export default function Home() {
     return (
         <>
-        <Header></Header>
+            <Header></Header>
             {/* Carousel Start */}
-            
+
             <div className="carousel-header pt-5" >
                 <div className='container-fluid' pt-5>.</div>
                 <div id="carouselId" className="carousel slide pt-4 " data-bs-ride="carousel"  >
@@ -74,7 +74,7 @@ export default function Home() {
                     </button>
                 </div>
             </div>
-            
+
             {/* Carousel End */}
 
             {/* Gallary Start */}
@@ -128,164 +128,34 @@ export default function Home() {
 
             {/* Gallary End */}
 
-            {/* Blog Start */}
-            <div className="container-fluid blog ">
-                <div className="container pb-5">
-                    <div className="mx-auto text-center mb-5" style={{ maxWidth: 900 }}>
-                        <h5 className="section-title px-3">All Turf</h5>
-                        <h1 className="mb-4">Top Level Turf</h1>
-                        <p className="mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-                            deserunt tenetur sapiente atque. Magni non explicabo beatae sit, vel
-                            reiciendis consectetur numquam id similique sunt error obcaecati
-                            ducimus officia maiores.
-                        </p>
+
+            {/* Booking turf start   */}
+        <div className="container">
+            <div className="card mb-3" >
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img src="img/blog-2.jpg" className="img-fluid rounded-start" alt="..." />
                     </div>
-                    <div className="row g-4 justify-content-center">
-                        <div className="col-lg-4 col-md-6">
-                            <div className="blog-item">
-                                <div className="blog-img">
-                                    <div className="blog-img-inner">
-                                        <img
-                                            className="img-fluid w-100 rounded-top"
-                                            src="img/blog-1.jpg"
-                                            alt="Image"
-                                        />
-                                        <div className="blog-icon">
-                                            <a href="#" className="my-auto">
-                                                <i className="fas fa-link fa-2x text-white" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-                                    <a href="/book" className="h3">
-                                        Cricket Turf
-                                    </a>
-                                    <p className="my-3">
-                                        Cricket Truf In Nashik All content
-                                    </p>
-
-                                    <p className="my-1">
-                                        Ground Width                            
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-
-
-                                    <a href="/book" className="h5">
-                                        Price: 250/hr
-                                    </a>
-                                    <hr></hr>
-                                    <a href="book" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="blog-item">
-                                <div className="blog-img">
-                                    <div className="blog-img-inner">
-                                        <img
-                                            className="img-fluid w-100 rounded-top"
-                                            src="img/blog-2.jpg"
-                                            alt="Image"
-                                        />
-                                        <div className="blog-icon">
-                                            <a href="#" className="my-auto">
-                                                <i className="fas fa-link fa-2x text-white" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-
-                                    <a href="/book" className="h3">
-                                        Badminton Turf
-                                    </a>
-                                    <p className="my-3">
-                                        Badminton Truf In Nashik All content
-                                    </p>
-
-                                    <p className="my-1">
-                                        Ground Width                            
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-
-
-                                    <a href="/book" className="h5">
-                                        Price: 270/hr
-                                    </a>
-                                    <hr></hr>
-                                    <Link to="book" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="blog-item">
-                                <div className="blog-img">
-                                    <div className="blog-img-inner">
-                                        <img
-                                            className="img-fluid w-100 rounded-top"
-                                            src="img/blog-3.jpg"
-                                            alt="Image"
-                                        />
-                                        <div className="blog-icon">
-                                            <a href="#" className="my-auto">
-                                                <i className="fas fa-link fa-2x text-white" />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-
-                                    <a href="/book" className="h3">
-                                        Football Turf
-                                    </a>
-                                    <p className="my-3">
-                                        Football Truf In Nashik All content                          
-                                     </p>
-
-                                    <p className="my-1">
-                                        Ground Width                            
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-
-                                    <a href="/book" className="h5">
-                                        Price: 280/hr
-                                    </a>
-                                    <hr></hr>
-                                    <a href="book" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </a>
-                                </div>
-                            </div>
+                    <div className="col-md-8 py-2 px-4 ">
+                        <div className="card-body">
+                            <h5 className="card-title">Card title</h5>
+                            <p className="card-text">
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </p>
+                            <p className="card-text">
+                                <small className="text-muted">Last updated 3 mins ago</small>
+                            </p>
+                            <Link to="/login" className='btn btn-primary py-2 px-4 ms-lg-2' > Get Click </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* Blog End */}
+        </div>
+            {/* Booking turf end   */}
+
+
+            
 
 
 

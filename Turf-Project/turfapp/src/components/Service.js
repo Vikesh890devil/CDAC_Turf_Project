@@ -158,11 +158,7 @@ export default function Service() {
           </div>
         </div>
         <div className="col-12">
-          <div className="text-center">
-            <a className="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">
-              Service More
-            </a>
-          </div>
+          
         </div>
       </div>
     </div>

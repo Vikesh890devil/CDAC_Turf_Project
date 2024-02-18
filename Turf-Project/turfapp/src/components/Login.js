@@ -20,7 +20,7 @@ export default function Login() {
     if(res.data===true){
       alert("success full login");
       localStorage.setItem("userlogin",JSON.stringify(Users));
-      history("/myBooking",)
+      history("/turf",)
     }else{
       alert("failed to login");
     }
@@ -86,6 +86,8 @@ export default function Login() {
                         />
                     </div>
                     <div className="col-md-12 pt-4">
+
+
                       <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
                         Log In
                       </button>
