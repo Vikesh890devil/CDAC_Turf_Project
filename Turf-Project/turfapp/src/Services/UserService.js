@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL ='http://localhost:6163';
+const URL ='http://localhost:6162';
 
 const UserService={
     // Add users 
@@ -10,15 +10,21 @@ const UserService={
     getUser(){
         return axios.get(URL+"/userregister-api");
     },
-    deteteUserbyId(userId){ //delete user by userId
-        return axios.delete(URL+"/managerregister-api"+userId);
+    //delete user by userId
+    deteteUserbyId(userId){ 
+        return axios.delete(URL+"/userregister-api"+userId);
     },
-    checkuserbyId(userId){ //find user by userId
-        return axios.post(URL+"/managerregister-api",userId);
+    //find user by userId
+    checkuserbyId(userId){ 
+        return axios.post(URL+"/userregister-api",userId);
     },
+    //find user by userId
     loginCheck(Users){
         return axios.post(URL+"/user-login",Users);
     }
     }
+
+
     export default UserService;
+    
     ///managerregister-api

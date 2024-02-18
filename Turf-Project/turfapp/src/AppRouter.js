@@ -69,7 +69,7 @@ const router = createBrowserRouter([
             element:<GroundTable />
           },
           {
-            path:"/displayallusers",
+            path:"/displayAllUser",
             element:<Displayallusers />
           },
           {

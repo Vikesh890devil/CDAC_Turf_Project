@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import UserService from '../Services/UserService';
 import Footer from '../common/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
+import AdminService from '../Services/AdminService';
 
 export default function AdminLogin() {
   const history = useNavigate();
@@ -11,15 +11,15 @@ export default function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const Users = {
+    const Admin = {
       username: username.current.value,
       password: password.current.value
     }
-    UserService.loginCheck(Users).then((res) => {
+    AdminService.loginCheck(Admin).then((res) => {
       console.log(res.data);
       if (res.data === true) {
         alert("success full login");
-        localStorage.setItem("userlogin", JSON.stringify(Users));
+        localStorage.setItem("adminlogin", JSON.stringify(Admin));
         history("/allBooking",)
       } else {
         alert("failed to login");

@@ -52,13 +52,16 @@ export default function HeaderAdmin() {
               <Link to="/groundTable" className="nav-item nav-link">
                 Ground Table
               </Link>
-              <Link to="#" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" onClick={logout}>
-                <small className="me-3" >
-                  <i className="fa fa-user me-2" />
-                  Logout
-                </small>
+              <Link to="/displayAllUser" className="nav-item nav-link">
+                All User
               </Link>
-            </div>
+              </div>
+              <Link to="#" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" onClick={logout}>
+              <small className="me-3" >
+                <i className="fa fa-user me-2" />
+                Logout
+              </small>
+              </Link>
           </div>
         </nav>
 

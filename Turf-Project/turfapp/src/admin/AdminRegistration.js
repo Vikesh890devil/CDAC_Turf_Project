@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
-import UserService from '../Services/UserService';
-import { Link, redirect, useNavigate } from 'react-router-dom';
 
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import Footer from '../common/Footer';
-import HeaderAdmin from '../common/HeaderAdmin';
+import Header from '../common/Header';
+import AdminService from '../Services/AdminService';
 
 export default function AdminRegistration() {
 
@@ -37,19 +37,19 @@ export default function AdminRegistration() {
 
   const handeSubmit = (e) => {
     e.preventDefault();
-    const Users = {
+    const Admin = {
       name: Name.current.value,
       age: age.current.value,
       mobileNo: mobileNo.current.value,
       username: username.current.value,
       password: password.current.value
     }
-    UserService.addUser(Users).then((res) => {
-      //console.log(res.data);
+    AdminService.addAdmin(Admin).then((res) => {
+     
       alert('sucessfully added');
-      //console.log(res.status);
+      
       localStorage.setItem("registerData", JSON.stringify([...data, inpval]));
-      history('/login');
+      history('/adminLogin');
     }).catch((err) => {
       console.log(err);
       alert('Faild to add user');
@@ -58,12 +58,12 @@ export default function AdminRegistration() {
   };
   return (
     <>
-      <HeaderAdmin></HeaderAdmin>
+      <Header></Header>
 
       {/* Header start */}
       <div className="container-fluid bg-breadcrumb">
         <div className="container text-center" style={{ maxWidth: 900 }}>
-          <h3 className="text-white display-3">Register</h3>
+          <h3 className="text-white display-3">User Register</h3>
         </div>
       </div>
       {/* Header End */}
@@ -158,12 +158,7 @@ export default function AdminRegistration() {
                     Sign in
                   </button>
                 </div>
-                <div className="col-12">
-                  <Link to="/displayallusers"><button className="btn btn-primary w-100 ">
-                    display  All users
-                  </button>
-                  </Link>
-                </div>
+                
               </form>
             </div>
             <div className='col-3 pt-5'></div>
