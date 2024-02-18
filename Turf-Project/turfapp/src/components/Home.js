@@ -8,11 +8,11 @@ export default function Home() {
     return (
         <>
             <Header></Header>
-
+            
             {/* Carousel Start */}
 
             <div className="carousel-header " >
-
+            
                 <div id="carouselId" className="carousel slide" data-bs-ride="carousel"  >
                     <ol className="carousel-indicators">
                         <li
@@ -131,32 +131,32 @@ export default function Home() {
 
 
             {/* Booking turf start   */}
-            <div className="container">
-                <div className="card mb-3" >
-                    <div className="row g-0">
-                        <div className="col-md-4">
-                            <img src="img/blog-2.jpg" className="img-fluid rounded-start" alt="..." />
-                        </div>
-                        <div className="col-md-8 py-2 px-4 ">
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">
-                                    This is a wider card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.
-                                </p>
-                                <p className="card-text">
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                </p>
-                                <Link to="/login" className='btn btn-primary py-2 px-4 ms-lg-2' > Get Click </Link>
-                            </div>
+        <div className="container">
+            <div className="card mb-3" >
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img src="img/blog-2.jpg" className="img-fluid rounded-start" alt="..." />
+                    </div>
+                    <div className="col-md-8 py-2 px-4 ">
+                        <div className="card-body">
+                            <h5 className="card-title">Card title</h5>
+                            <p className="card-text">
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </p>
+                            <p className="card-text">
+                                <small className="text-muted">Last updated 3 mins ago</small>
+                            </p>
+                            <Link to="/login" className='btn btn-primary py-2 px-4 ms-lg-2' > Get Click </Link>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
             {/* Booking turf end   */}
 
 
-
+            
 
 
 

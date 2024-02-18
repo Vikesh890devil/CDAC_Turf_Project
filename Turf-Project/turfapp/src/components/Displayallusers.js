@@ -5,9 +5,12 @@ export default function Displayallusers() {
  const [users,setUsers] = useState([]);
  useEffect(()=>{
     UserService.getUser().then((res)=>{
-        console.log(res.data);
         setUsers(res.data);
+        console.log(res.data);
+    }).catch(error =>{
+      console.log(error);
     })
+    
  },[]);
 
 
