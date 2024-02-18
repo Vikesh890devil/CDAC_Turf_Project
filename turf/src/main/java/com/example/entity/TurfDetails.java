@@ -1,9 +1,7 @@
 package com.example.entity;
 
 import java.util.Arrays;
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class TurfDetails {
@@ -25,10 +22,10 @@ public class TurfDetails {
 	private String description;
 	private double width;
 	private double length;
+	private double price;
 	@Lob
 	@Column(name = "photo", columnDefinition = "LONGBLOB")
 	private byte[] image;
-
 
 	@ManyToOne
 	@JoinColumn(name = "manager_id", referencedColumnName = "managerId")
@@ -37,20 +34,19 @@ public class TurfDetails {
 	public TurfDetails() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
-	public TurfDetails(Long turfId, String name, String description, double width, double length, byte[] image,
-			ManagerRegistration manager) {
+	public TurfDetails(Long turfId, String name, String description, double width, double length, double price,
+			byte[] image, ManagerRegistration manager) {
 		super();
 		this.turfId = turfId;
 		this.name = name;
 		this.description = description;
 		this.width = width;
 		this.length = length;
+		this.price = price;
 		this.image = image;
 		this.manager = manager;
 	}
-
 
 	public Long getTurfId() {
 		return turfId;
@@ -108,10 +104,19 @@ public class TurfDetails {
 		this.manager = manager;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		return "TurfDetails [turfId=" + turfId + ", name=" + name + ", description=" + description + ", width=" + width
-				+ ", length=" + length + ", image=" + Arrays.toString(image) + ", manager=" + manager + "]";
+				+ ", length=" + length + ", price=" + price + ", image=" + Arrays.toString(image) + ", manager="
+				+ manager + "]";
 	}
 
 }

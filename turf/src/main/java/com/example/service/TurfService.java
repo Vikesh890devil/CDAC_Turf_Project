@@ -1,20 +1,16 @@
 package com.example.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.entity.Booking;
 import com.example.entity.ManagerRegistration;
 import com.example.entity.TurfDetails;
-import com.example.entity.UserRegistration;
-import com.example.repository.ManagerRegistrationRepo;
+
 import com.example.repository.TurfRepo;
 
 @Service
@@ -24,10 +20,9 @@ public class TurfService {
 	private TurfRepo turfRepoRef;
 	@Autowired
 	private ManagerRegistrationService managerServ;
-	@Autowired
-	private ManagerRegistrationRepo managerRepo;
 
-	public String saveData(MultipartFile file, String name, String description, double width, double length, Integer id)
+
+	public String saveData(MultipartFile file, String name, String description, double width, double length,double price, Integer id)
 			throws IOException {
 		TurfDetails turfdetails = new TurfDetails();
 //		List<TurfDetails> detail = new ArrayList<>();
@@ -35,6 +30,7 @@ public class TurfService {
 		turfdetails.setLength(length);
 		turfdetails.setName(name);
 		turfdetails.setWidth(width);
+		turfdetails.setPrice(price);
 		turfdetails.setImage(file.getBytes());
 //		detail.add(turfdetails);
 
@@ -63,14 +59,13 @@ public class TurfService {
 	}
 	
 	  public Integer getManagerIdByTurfId(Long turfId) {
-	        // Assuming you have a method to get TurfDetails by ID, replace the following line with the actual retrieval
 	        TurfDetails turfDetails =getOneturf(turfId);
 
 	        if (turfDetails != null && turfDetails.getManager() != null) {
 	            return turfDetails.getManager().getManagerId();
 	        }
 
-	        return null; // or throw an exception or handle accordingly based on your requirements
+	        return null; 
 	    }
 
 }

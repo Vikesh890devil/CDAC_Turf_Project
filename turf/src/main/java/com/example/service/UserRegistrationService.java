@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.entity.Crediantials;
 import com.example.entity.UserRegistration;
+import com.example.repository.CredRepo;
 import com.example.repository.UserRegistrationRepo;
 
 
@@ -15,6 +17,9 @@ public class UserRegistrationService {
 	
 	@Autowired
 	UserRegistrationRepo RegRepoRef;
+	
+	@Autowired
+	CredRepo credRef;
 	
 	public Collection<UserRegistration> getAllUsers(){
 		Collection<UserRegistration> allUsers = 
@@ -32,7 +37,13 @@ public class UserRegistrationService {
 	}
 	
 	public void addNewUser(UserRegistration newRef) {
+		
 		RegRepoRef.save(newRef);
+		Crediantials abc=new Crediantials();
+		abc.setUsername(newRef.getUsername());
+		abc.setPassword(newRef.getPassword());
+		abc.setRoles("user");
+		credRef.save(abc);
 	}
 	
 	public void deleteOneUser(Integer id) {

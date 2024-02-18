@@ -23,9 +23,9 @@ public class TurfController {
 	private TurfService turfServiceRef;
 	
 	@PostMapping("/turf-data/save/{mId}")
-	public String saveData(@RequestParam("file") MultipartFile file,@RequestParam("turfName") String name,@RequestParam("description") String description,@RequestParam("width") double width,@RequestParam("length")double length,@PathVariable("mId") Integer id) throws IOException {
+	public String saveData(@RequestParam("file") MultipartFile file,@RequestParam("turfName") String name,@RequestParam("description") String description,@RequestParam("width") double width,@RequestParam("length")double length,@RequestParam("price")double price,@PathVariable("mId") Integer id) throws IOException {
 		
-		return turfServiceRef.saveData(file, name, description, width, length,id);
+		return turfServiceRef.saveData(file, name, description, width, length,price,id);
 	}
 	
 	@GetMapping("/get-allTurf")
