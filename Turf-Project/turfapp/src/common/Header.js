@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 export default function Header() {
   return (
     <>
@@ -63,6 +64,8 @@ export default function Header() {
 
         </div>
         {/* Navbar & Hero End */}
+
+        <div className='container' style={{height:"6rem"}}></div>
       </>
 
   

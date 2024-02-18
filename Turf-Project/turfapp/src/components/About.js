@@ -6,8 +6,9 @@ export default function About() {
   return (
     <>
     <Header></Header>
+    
     {/* Header start */}
-  <div className="container-fluid bg-breadcrumb">
+  <div className="container-fluid bg-breadcrumb ">
     <div className="container text-center" style={{ maxWidth: 900 }}>
       <h3 className="text-white display-3">About Us</h3>
     </div>

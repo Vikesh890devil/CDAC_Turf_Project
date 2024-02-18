@@ -77,18 +77,13 @@ export default function AdminLogin() {
                       />
                     </div>
                     <div className="col-md-12 py-3">
-                      <div className="row">
-                        <div className="col-md-2">
-                          <button type="submit" className="btn btn-primary p-3 " onClick={handleSubmit}>
-                            Log In
-                          </button>
-                        </div>
-                        <div className="col-md-10 ">
-                          <a className="lost_pass fs-5" href="#"><u>
-                            Forgot password?</u>
-                          </a>
-                        </div>
-                      </div>
+                      <button type="submit" className="btn btn-primary p-3 " onClick={handleSubmit}>
+                        Log In
+                      </button>&nbsp;&nbsp;&nbsp;
+
+                      <a className="lost_pass fs-5" href="#"><u>
+                        Forgot password?</u>
+                      </a>
                     </div>
                   </form>
                 </div>

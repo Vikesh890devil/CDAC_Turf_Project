@@ -70,6 +70,8 @@ export default function HeaderAdmin() {
 
       </div>
       {/* Navbar & Hero End */}
+
+      <div className='container' style={{height:"6rem"}}></div>
     </>
 
 
