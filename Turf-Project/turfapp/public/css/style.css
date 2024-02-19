@@ -1,6 +1,55 @@
 
-/*** Spinner Start ***/
-/*** Spinner ***/
+/*** Booking Start ***/
+
+.about_section .row {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .about_section .img-box {
+    position: relative;
+  }
+  
+  .about_section .img-box img {
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .about_section .img-box::before, .about_section .img-box::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 70%;
+    background-color: #13357b;
+    z-index: 3;
+  }
+  
+  .about_section .img-box::before {
+    left: 0;
+    z-index: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .about_section .img-box::after {
+    right: 0;
+    z-index: 1;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+  }
+
+  .a{
+    color: #13357b;
+  }
+  
+  /*** Booking End***/
+  
+  
+
+/*** Spinner Start***/
 
 
 #spinner {
@@ -396,6 +445,7 @@
 /*** Carousel Hero Header End ***/
 
 
+
 /*** Single Page Hero Header Start ***/
 .bg-breadcrumb {
     background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../img/socer5.jpg);
@@ -403,7 +453,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    padding: 150px 0 50px 0;
+    padding: 50px 0 50px 0;
 }
 
 .bg-breadcrumb .breadcrumb-item a {

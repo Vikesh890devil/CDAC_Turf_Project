@@ -85,6 +85,7 @@ export default function AdminRegistration() {
                     ref={Name}
                     placeholder="Enter the full name"
                     onChange={getdata}
+                    required={Name}
                   />
                 </div>
 
@@ -129,6 +130,7 @@ export default function AdminRegistration() {
                     placeholder="Enter the your username"
                     ref={username}
                     onChange={getdata}
+                    
                   />
                 </div>
 

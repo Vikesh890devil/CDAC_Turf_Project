@@ -8,11 +8,11 @@ export default function Home() {
     return (
         <>
             <Header></Header>
-            
+
             {/* Carousel Start */}
 
             <div className="carousel-header " >
-            
+
                 <div id="carouselId" className="carousel slide" data-bs-ride="carousel"  >
                     <ol className="carousel-indicators">
                         <li
@@ -78,6 +78,45 @@ export default function Home() {
 
             {/* Carousel End */}
 
+
+
+
+            {/* Booking turf start   */}
+
+            <section className="about_section layout_padding-bottom  mt-5">
+
+                <div className="container  ">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="detail-box">
+                                <div className="heading_container">
+                                    <h2>
+                                        All<span className='a'>Turf</span>
+                                    </h2>
+                                </div>
+                                <p>
+                                    There are many variations of passages of Lorem Ipsum available, but
+                                    the majority have suffered alteration in some form, by injected
+                                    humour, or randomised words which don't look even slightly
+                                    believable. If you are going to use a passage of Lorem Ipsum, you
+                                    need to be sure there isn't anything embarrassing hidden in the
+                                    middle of text. All
+                                </p>
+                                <Link to="/login" className='btn btn-primary py-2 px-5 ' > Get Click </Link>
+                                <br /><br />
+                            </div>
+                        </div>
+                        <div className="col-md-6 ">
+                            <div className="img-box">
+                                <img src="img/play1.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* Booking turf end   */}
+
+
             {/* Gallary Start */}
             <div className="container-fluid destination py-5">
                 <div className="container py-5">
@@ -130,33 +169,9 @@ export default function Home() {
             {/* Gallary End */}
 
 
-            {/* Booking turf start   */}
-        <div className="container">
-            <div className="card mb-3" >
-                <div className="row g-0">
-                    <div className="col-md-4">
-                        <img src="img/blog-2.jpg" className="img-fluid rounded-start" alt="..." />
-                    </div>
-                    <div className="col-md-8 py-2 px-4 ">
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">
-                                This is a wider card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.
-                            </p>
-                            <p className="card-text">
-                                <small className="text-muted">Last updated 3 mins ago</small>
-                            </p>
-                            <Link to="/login" className='btn btn-primary py-2 px-4 ms-lg-2' > Get Click </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            {/* Booking turf end   */}
 
 
-            
+
 
 
 

@@ -37,8 +37,8 @@ export default function Login() {
           <h3 className="text-white display-3">Login</h3>
         </div>
       </div>
-      {/*================login_part Area =================*/}
-      <section className="login_part section_padding pt-5 pb-5" >
+      
+      {/* <section className="login_part section_padding pt-5 pb-5" >
         <div className="container " style={{ border: "1px solid", borderRadius: "30px" }}>
           <div className="row align-items-center pt-5 pb-5" >
             <div className="col-lg-6 col-md-6 log"  >
@@ -60,12 +60,12 @@ export default function Login() {
             <div className="col-lg-6 col-md-6">
               <div className="login_part_form">
                 <div className="login_part_form_iner">
-                  <h3>
+                  <h3 className='h3 pt-4'>
                     Welcome<br />
                     Please Sign in now
                   </h3>
                   <form
-                    className='form-control'
+                    className='form-control w'
                   >
                     <div className="col-md-12 pt-3" >
                       <input
@@ -101,8 +101,71 @@ export default function Login() {
             </div>
           </div>
         </div>
+      </section> */}
+      
+
+      {/*================login_part Area =================*/}
+      <section className="login_part section_padding pt-5 pb-5" >
+        <div className="container ">
+          <div className="row align-items-center pt-4 pb-5" >
+            <div className="col-lg-6 col-md-6 log"  >
+              <img className="img-fluid w-100 rounded-top"
+                src="img/userLogin.png"
+                alt="Image"
+              />
+
+            </div>
+            <div className="col-lg-6 col-md-6">
+              <div className="login_part_form">
+                <div className="login_part_form_iner"><u>
+                  <h2 className='h1 text-center'>Sigin</h2></u>
+                  <form
+                    className='form-control py-3'
+                  >
+                    <div className="col-md-12 py-3" >
+                      <input
+                        type="text"
+                        className="form-control p-2"
+                        name="username"
+                        placeholder="Username"
+                        ref={username}
+                      />
+                    </div>
+                    <div className="col-md-12 py-3 ">
+                      <input
+                        type="password"
+                        className="form-control p-2"
+                        name="password"
+                        placeholder="Password"
+                        ref={password}
+                      />
+                    </div>
+                    <div className="col-md-12 py-3 text-center">
+                      <button type="submit" className="btn btn-primary w-50" onClick={handleSubmit} >
+                        Log In
+                      </button><br></br>
+                      <a className="lost_pass" href="#">
+                        Forgot password?
+                      </a><br />
+                      <Link className="registration" to="/register">
+                        Registration
+                      </Link>
+                      
+                     
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       {/*================login_part end =================*/}
+
+
+
+
+
       <Footer></Footer>
     </>
   );

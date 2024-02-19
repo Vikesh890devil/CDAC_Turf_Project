@@ -85,6 +85,7 @@ export default function Register() {
                     ref={Name}
                     placeholder="Enter the full name"
                     onChange={getdata}
+                    required={Name}
                   />
                 </div>
 
@@ -153,20 +154,16 @@ export default function Register() {
                   />
                 </div>
 
-                <div className="col-3">
+                <div className="col-12 text-center">
                 
 
-
-                  <button type="submit" className="btn btn-primary w-100 " onClick={handeSubmit} >
+                    <br/> 
+                  <button type="submit" className="btn btn-primary w-50  " onClick={handeSubmit} >
                     Sign in
-                  </button>
+                  </button><br/><br/>
+                  <Link to="/login">Allready have an account</Link>
                 </div>
-                <div className="col-3">
-                  <Link to="/login"><button className="btn btn-primary w-100 ">
-                    Login
-                  </button>
-                  </Link>
-                </div>
+                
               </form>
             </div>
             <div className='col-3 pt-5'></div>

@@ -40,10 +40,10 @@ export default function AdminLogin() {
       {/*================login_part Area =================*/}
       <section className="login_part section_padding pt-5 pb-5" >
         <div className="container ">
-          <div className="row align-items-center pt-5 pb-5" >
+          <div className="row align-items-center pt-4 pb-5" >
             <div className="col-lg-6 col-md-6 log"  >
               <img className="img-fluid w-100 rounded-top"
-                src="img/blog-2.jpg"
+                src="img/login.jpg"
                 alt="Image"
               />
 
@@ -51,17 +51,14 @@ export default function AdminLogin() {
             <div className="col-lg-6 col-md-6">
               <div className="login_part_form">
                 <div className="login_part_form_iner">
-                  <h3>
-                    Welcome<br />
-                    Please Sign in now
-                  </h3>
+                  
                   <form
                     className='form-control py-3'
                   >
                     <div className="col-md-12 py-3" >
                       <input
                         type="text"
-                        className="form-control p-3"
+                        className="form-control p-2"
                         name="username"
                         placeholder="Username"
                         ref={username}
@@ -70,20 +67,21 @@ export default function AdminLogin() {
                     <div className="col-md-12 py-3 ">
                       <input
                         type="password"
-                        className="form-control p-3"
+                        className="form-control p-2"
                         name="password"
                         placeholder="Password"
                         ref={password}
                       />
                     </div>
-                    <div className="col-md-12 py-3">
-                      <button type="submit" className="btn btn-primary p-3 " onClick={handleSubmit}>
+                    <div className="col-md-12 py-3 text-center">
+                      <button type="submit" className="btn btn-primary w-50" onClick={handleSubmit} >
                         Log In
-                      </button>&nbsp;&nbsp;&nbsp;
-
-                      <a className="lost_pass fs-5" href="#"><u>
-                        Forgot password?</u>
+                      </button><br/>
+                      <a className="lost_pass " href="#">
+                        Forgot password?
                       </a>
+                      
+                     
                     </div>
                   </form>
                 </div>
