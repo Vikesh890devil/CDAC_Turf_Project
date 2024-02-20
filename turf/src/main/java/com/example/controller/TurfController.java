@@ -47,4 +47,9 @@ public class TurfController {
 		
 		return turfServiceRef.getManagerIdByTurfId(tID);
 	}
+	@GetMapping("/get-managerTurfs/{managerId}")
+	public Collection<TurfDetails> getManagerTurfs(@PathVariable("managerId")Integer id ){
+		Collection<TurfDetails> allTurfs=turfServiceRef.getTurfsByManagerId(id);
+		return allTurfs;
+	}
 }
