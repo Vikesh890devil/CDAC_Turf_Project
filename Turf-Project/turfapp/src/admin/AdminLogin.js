@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Footer from '../common/Footer';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
 import AdminService from '../Services/AdminService';
 

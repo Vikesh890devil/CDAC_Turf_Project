@@ -41,9 +41,7 @@ export default function Header() {
               <Link to="/contact" className="nav-item nav-link">
                 Contact
               </Link>
-              <Link to="/adminLogin" className="nav-item nav-link">
-                Customer
-              </Link>
+              
 
             </div>
             <Link to="/register" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">
