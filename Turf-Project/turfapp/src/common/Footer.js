@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -6,109 +7,90 @@ export default function Footer() {
   {/* Footer Start */}
   <div className="container-fluid footer ">
     <div className="container py-5">
-      <div className="row g-5">
-        <div className="col-md-6 col-lg-6 col-xl-3 ">
+      <div className="row g-5 ">
+        <div className="col-md-6 col-lg-6 col-xl-4 text-center">
           <div className="footer-item d-flex flex-column">
             <h4 className="mb-4 text-white footertext">Get In Touch</h4>
-            <a href="">
-              <i className="fas fa-home me-2" /> 123 Street, Adgaon, Puna
-            </a>
-            <a href="">
-              <i className="fas fa-envelope me-2" />sanketlike63@gmail.com
-            </a>
-            <a href="">
-              <i className="fas fa-phone me-2" />9414173314
-            </a>
+            <Link to="">
+              <i className="fas fa-home me-2" /> 123 Street, Adgaon, Nashik
+            </Link>
+            <Link to="">
+              <i className="fas fa-envelope me-2" />Demo@gmail.com
+            </Link>
+            <Link to="">
+              <i className="fas fa-phone me-2" />+91 9098984980
+            </Link>
             
-            <div className="d-flex align-items-center">
-              <i className="fas fa-share fa-2x text-white me-2" />
-              <a
-                className="btn-square btn btn-primary rounded-circle mx-1"
-                href="https://www.facebook.com"
+            <div className="d-flex" style={{marginLeft:"4rem"}}>
+              
+              <i className="fas fa-share fa-2x text-white "/>
+              <Link
+                className="btn-square btn btn-primary  mx-1 text-center "
+            Link to="https://www.facebook.com"
               >
                 <i className="fab fa-facebook-f" />
-              </a>
-              <a
+              </Link>
+              <Link
                 className="btn-square btn btn-primary rounded-circle mx-1"
-                href="https://twitter.com/i/flow/login"
+            Link to="https://twitter.com/i/flow/login"
               >
                 <i className="fab fa-twitter" />
-              </a>
-              <a
+              </Link>
+              <Link
                 className="btn-square btn btn-primary rounded-circle mx-1"
-                href="https://www.instagram.com"
+            Link to="https://www.instagram.com"
               >
                 <i className="fab fa-instagram" />
-              </a>
-              <a
+              </Link>
+              <Link
                 className="btn-square btn btn-primary rounded-circle mx-1"
-                href="https://in.linkedin.com"
+            Link to="https://in.linkedin.com"
               >
                 <i className="fab fa-linkedin-in" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 col-xl-3 ">
+        <div className="col-md-6 col-lg-6 col-xl-4 text-center">
           <div className="footer-item d-flex flex-column">
             <h4 className="mb-4 text-white">Sports</h4>
-            <a href="https://www.cricket.com">
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Cricket
-            </a>
-            <a href="https://olympics.com/en/sports/basketball/">
+            </Link>
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Basketball
-            </a>
-            <a href="https://www.football.com/welcome/">
+            </Link>
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> FootBall
-            </a>
-            <a href="https://www.fih.hockey/events/world-cup">
+            </Link>
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Hockey 
-            </a>
+            </Link>
+            
             
            
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 col-xl-3">
+        <div className="col-md-6 col-lg-6 col-xl-4 text-center">
           <div className="footer-item d-flex flex-column">
             <h4 className="mb-4 text-white">Support</h4>
             
-            <a href="https://www.manupatra.com/corporate/Blog/legal-notice-basics.aspx">
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Legal Notice
-            </a>
-            <a href="https://policies.google.com/privacy?hl=en-US">
+            </Link>
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Privacy Policy
-            </a>
-            <a href="https://en.wikipedia.org/wiki/Terms_of_service">
+            </Link>
+            <Link to="#">
               <i className="fas fa-angle-right me-2" /> Terms and Conditions
-            </a>
+            </Link>
+            <Link to="/adminLogin">
+            <i className="fas fa-angle-right me-2" /> LoginAdmin
+            </Link>
            
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 col-xl-3 ">
-          <div className="footer-item">
-            <h4 className="text-white mb-3">Payments</h4>
-            <div className="footer-bank-card">
-              <a href="#" className="text-white me-2">
-                <i className="fab fa-cc-amex fa-2x" />
-              </a>
-              <a href="#" className="text-white me-2">
-                <i className="fab fa-cc-visa fa-2x" />
-              </a>
-              <a href="#" className="text-white me-2">
-                <i className="fas fa-credit-card fa-2x" />
-              </a>
-              <a href="#" className="text-white me-2">
-                <i className="fab fa-cc-mastercard fa-2x" />
-              </a>
-              <a href="#" className="text-white me-2">
-                <i className="fab fa-cc-paypal fa-2x" />
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-cc-discover fa-2x" />
-              </a>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -119,7 +101,7 @@ export default function Footer() {
       <div className="row">
         <div className="col-md-12">
         <p className='h5' style={{textAlign:"center", color:"white"}}>
-          <a href="#"> Turf Mangement</a> Power By Team
+          <Link to="#"><b> Turf Mangement</b></Link>&copy; Power By Team
           </p>
         </div>
         
@@ -130,12 +112,12 @@ export default function Footer() {
 
 
   {/* Back to Top */}
-  <a
-    href="#"
+  <Link
+Link to="#"
     className="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"
   >
     <i className="fa fa-arrow-up" />
-  </a>
+  </Link>
 </>
 
   )

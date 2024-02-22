@@ -50,9 +50,6 @@ export default function HeaderUser() {
               <Link to="/contact" className="nav-item nav-link">
                 Contact
               </Link>
-              <Link to="/#" className="nav-item nav-link">
-                Contact
-              </Link>
               <Link to="/myBooking" className="nav-item nav-link">
                 BooKing
               </Link>

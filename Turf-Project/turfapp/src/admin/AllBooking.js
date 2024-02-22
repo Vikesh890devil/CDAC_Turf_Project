@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderAdmin from '../common/HeaderAdmin'
 import Footer from '../common/Footer'
+import BookingService from '../Services/Booking';
 
 export default function AllBooking() {
+
+    const [Booking,setBooking] = useState([]);
+
+    useEffect(()=>{
+        BookingService.getBooking().then((res)=>{
+        setBooking(res.data);
+        console.log(res.data);
+    }).catch(error =>{
+      console.log(error);
+    })
+    
+ },[]);
+
+
     return (
         <>
             <HeaderAdmin></HeaderAdmin>
@@ -19,7 +34,6 @@ export default function AllBooking() {
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Ground</th>
                                 <th scope="col">Ground Name</th>
                                 <th scope="col">Booking Id</th>
                                 <th scope="col">Customer Name</th>
@@ -28,23 +42,23 @@ export default function AllBooking() {
                                 <th scope="col">Booking Time Slot</th>
                                 <th scope="col">Total Payable Amount</th>
                                 <th scope="col">Booking Status</th>
-                                <th scope="col">Verify Booking Status</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
+                        { Booking.map((booking)=>(
                             <tr>
-                                <th >Image</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>2565</td>
-                                <td>500</td>
-                                <td>110</td>
-                                <td>252</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td scope="row">{booking.turf.name}</td>
+                                <td scope="row">{booking.bookingId}</td>
+                                <td scope="row">{booking.user.name}</td>
+                                <td scope="row">{booking.user.mobileNo}</td>
+                                <td scope="row">{booking.bookingDate}</td>
+                                <td scope="row">{booking.timeSlot}</td>
+                                <td scope="row">cash...</td>
+                                <td scope="row">pending...</td>
                                 <td><button type='button' className='btn btn-danger'>Verify Booking</button></td>
                             </tr>
-                            
+                        ))}
                         </tbody>
                     </table>
                     </div>

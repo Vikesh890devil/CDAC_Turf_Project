@@ -40,12 +40,13 @@ export default function TurfBooking() {
                                         <p className="my-1">
                                             Ground Width:
                                         </p>
+                                        <p></p>
+
                                         <p className="my-1">
                                             Ground Length:
                                         </p>
-                                        <p className="mb-3">
-                                            Ground Height:
-                                        </p>
+                                        <br />
+
                                     </div>
 
 
@@ -103,9 +104,11 @@ export default function TurfBooking() {
                                         </Link>
                                     </div>
                                     <div className="col-md-3">
-                                        <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4 ">
-                                            Review
-                                        </Link>
+                                        <button style={{ border: "none" }}  >
+                                            <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4 ">
+                                                Review
+                                            </Link>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -113,18 +116,31 @@ export default function TurfBooking() {
                         </div>
                     </div>
 
-                    <div className='col-3 bg-light'>
-                        <div className='container '>
-                            <div className='row '>
+                    <div className='col-3 bg-light' >
+                        <div className='container' >
+                            <div className='row' >
                                 <div className='col-12'>
-                                <div className="blog-content  py-4  mt-2" >
-                                    <p>Review Content</p>
+                                    <div className="blog-content  py-4  mt-2" >
+                                        <h5>Client-Name</h5>
+
+                                        {/* <i class="fas fa-star me-1 text-primary"></i> */}
+
+                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
+                                        <hr />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='container'>
+                <form>
+                    
+                        <input type="text" className="form-control" /><br/>
+                        <textarea className="form-control" />
+                </form>
             </div>
             <Footer />
         </>

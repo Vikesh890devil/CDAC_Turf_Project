@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../common/Footer'
 import { Link } from 'react-router-dom'
 import HeaderUser from '../common/HeaderUser'
+import GroundService from '../Services/Ground';
 
 export default function About() {
+
+    const [Ground,setGround] = useState([]);
+
+    useEffect(()=>{
+    GroundService.getGround().then((res)=>{
+        setGround(res.data);
+        console.log(res.data);
+    }).catch(error =>{
+      console.log(error);
+    })
+    
+ },[]);
+
     return (
         <>
             <HeaderUser></HeaderUser>
@@ -28,10 +42,14 @@ export default function About() {
                             ducimus officia maiores.
                         </p>
                     </div>
-                    <div className="row g-4 justify-content-center">
+
+                    
+                    <div className="row g-4 ">
+                    { Ground.map((groumd)=>(
                         <div className="col-lg-4 col-md-6">
                             <div className="blog-item">
                                 <div className="blog-img">
+                               
                                     <div className="blog-img-inner">
                                         <img
                                             className="img-fluid w-100 rounded-top"
@@ -44,130 +62,40 @@ export default function About() {
                                             </Link>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-                                    <Link to="//turfBooking" className="h3">
-                                        Cricket Turf
-                                    </Link>
-                                    <p className="my-3">
-                                        Cricket Truf In Nashik All content
-                                    </p>
-
-                                    <p className="my-1">
-                                        Ground Width
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-
-
-                                    <Link to="//turfBooking" className="h5">
-                                        Price: 250/hr
-                                    </Link>
-                                    <hr></hr>
-                                    <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </Link>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="blog-item">
-                                <div className="blog-img">
-                                    <div className="blog-img-inner">
-                                        <img
-                                            className="img-fluid w-100 rounded-top"
-                                            src="img/blog-2.jpg"
-                                            alt="Image"
-                                        />
-                                        <div className="blog-icon">
-                                            <Link to="/turfBooking" className="my-auto">
-                                                <i className="fas fa-link fa-2x text-white" />
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-
-                                    <Link to="//turfBooking" className="h3">
-                                        Badminton Turf
-                                    </Link>
-                                    <p className="my-3">
-                                        Badminton Truf In Nashik All content
-                                    </p>
-
-                                    <p className="my-1">
-                                        Ground Width
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-                                    <Link to="/turfBooking" className="h5">
-                                        Price: 270/hr
-                                    </Link>
-                                    <hr></hr>
-                                    <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="blog-item">
-                                <div className="blog-img">
-                                    <div className="blog-img-inner">
-                                        <img
-                                            className="img-fluid w-100 rounded-top"
-                                            src="img/blog-3.jpg"
-                                            alt="Image"
-                                        />
-                                        <div className="blog-icon">
-                                            <Link to="/turfBooking" className="my-auto">
-                                                <i className="fas fa-link fa-2x text-white" />
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div className="blog-content border border-top-0 rounded-bottom p-4">
-
-                                    <Link to="/turfBooking" className="h3">
-                                        Football Turf
-                                    </Link>
-                                    <p className="my-3">
-                                        Football Truf In Nashik All content
-                                    </p>
-
-                                    <p className="my-1">
-                                        Ground Width
-                                    </p>
-                                    <p className="my-1">
-                                        Ground Length
-                                    </p>
-                                    <p className="mb-3">
-                                        Ground Height
-                                    </p>
-
-                                    <Link to="/turfBooking" className="h5">
-                                        Price: 280/hr
-                                    </Link>
-                                    <hr></hr>
-                                    <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
-                                        Book
-                                    </Link>
                                     
                                 </div>
+                                
+                                <div className="blog-content border border-top-0 rounded-bottom p-4">
+                                    <Link to="/turfBooking" className="h3">
+                                     {groumd.name}
+                                    </Link>
+                                    <p className="my-3">
+                                    {groumd.description}
+                                    </p>
+
+                                    <p className="my-1">
+                                    Width: {groumd.width}
+                                    </p>
+                                    <p className="my-1">
+                                    Length: {groumd.length}
+                                    </p>
+                                    <Link to="/turfBooking" className="h5">
+                                        Price: {groumd.price}/hr
+                                    </Link>
+                                    <hr></hr>
+                                    <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
+                                        Book
+                                    </Link>
+
+                                </div>
+                                                    
                             </div>
                         </div>
+                        ))
+                    }   
                     </div>
+                     
+  
                 </div>
             </div>
             {/* Blog End */}
