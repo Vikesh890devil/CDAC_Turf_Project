@@ -67,5 +67,10 @@ public class TurfService {
 
 	        return null; 
 	    }
+		 public List<TurfDetails> getTurfsByManagerId(Integer managerId) {
+		         ManagerRegistration manager = managerServ.getOneUser(managerId);
+		        List<TurfDetails> managerTurf = turfRepoRef.findByManager(manager);
+		        return managerTurf;
+		    }
 
 }
