@@ -11,6 +11,11 @@ class GroundService
     getGround(){
         return axios.get(URL+"/input/get-allTurf");
     }
+
+    getOneGround(){
+        return axios.get(URL+"/input/get-one/");
+    }
+
     
 
 }
