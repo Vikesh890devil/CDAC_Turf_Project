@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL ='http://localhost:6061';
+const URL ='http://localhost:6162';
 
 class GroundService 
 {
@@ -11,10 +11,7 @@ class GroundService
     getGround(){
         return axios.get(URL+"/input/get-allTurf");
     }
-    //get ground by Id
-    getGround(){
-        return axios.get(URL+"/input/get-one/");
-    }
+    
 
 }
 

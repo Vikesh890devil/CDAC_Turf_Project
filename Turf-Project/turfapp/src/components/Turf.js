@@ -44,7 +44,7 @@ export default function About() {
                     </div>
 
                     
-                    <div className="row g-4 ">
+                    <div className="row g-4">
                     { Ground.map((groumd)=>(
                         <div className="col-lg-4 col-md-6">
                             <div className="blog-item">
