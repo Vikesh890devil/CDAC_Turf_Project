@@ -23,8 +23,8 @@ public class BookingController {
 	private BookingService servRef;
 	
 	@PostMapping("/add-booking/{userid}/{turfId}")
-	public void addBooking(@RequestParam("date") String date,@RequestParam("slot") String slot,@PathVariable("userid") Integer id,@PathVariable("turfId") Long tId){
-		servRef.addBooking(date,slot,id,tId);
+	public String addBooking(@RequestParam("date") String date,@RequestParam("slot") String slot,@PathVariable("userid") Integer id,@PathVariable("turfId") Long tId){
+		return servRef.addBooking(date,slot,id,tId);
 	}
 
 	@GetMapping("/fetch-data")
@@ -44,5 +44,7 @@ public class BookingController {
 		
 		return servRef.getBookingsByManagerId(id);
 	}
+	
+	
 
 }
