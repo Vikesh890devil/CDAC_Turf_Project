@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderUser from '../common/HeaderUser'
 import Footer from '../common/Footer'
 import { Link } from 'react-router-dom'
 
+
 export default function TurfBooking() {
+
+
+    const [showFields, setShowFields] = useState(false)
+    const [formData, setFormData] = useState({
+        name: '',
+        description: '',
+    })
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('Form submitted:', formData)
+    }
+
     return (
+
         <>
             <HeaderUser />
 
@@ -16,26 +38,26 @@ export default function TurfBooking() {
             </div>
             {/* Header End */}
 
-            <div className='container my-5'>
+            <div className='container mt-5 mb-5'>
                 <div className='row'>
-                    <div className='col-3'>
+                    <div className='col-xl-3 col-md-12 g-3'>
                         <div className='col-12'>
-                            <img className="img-fluid w-100 rounded-top " src="img/blog-2.jpg" alt="Image"
-                                style={{ height: "250px", width: "450px" }}
-                            />
+                            <img className="img-fluid w-100 rounded " src="img/blog-2.jpg" alt="Image"
+                                style={{ height: "250px", width: "450px" }} />
                         </div>
                     </div>
 
-                    <div className='col-6'>
+                    <div className='col-xl-6 col-md-12 g-2 rounded'>
                         <div className='container'>
-                            <div className="blog-content border border-top-2 rounded p-4 bg-light" >
-                                <Link to="//turfBooking" className="h3">
+                            <div className="blog-content border border-top-2 rounded p-4 bg-light">
+                                <Link to="/turfBooking" className="h3">
                                     Cricket Turf
                                 </Link>
                                 <div className="row">
                                     <p className="my-3">
                                         Cricket Truf In Nashik All content
                                     </p>
+
                                     <div className="col-6">
                                         <p className="my-1">
                                             Ground Width:
@@ -45,12 +67,7 @@ export default function TurfBooking() {
                                         <p className="my-1">
                                             Ground Length:
                                         </p>
-                                        <br />
 
-                                    </div>
-
-
-                                    <div className="col-md-6">
                                         <div className="form-floating">
                                             <select class="form-select" aria-label="Default select example">
                                                 <option selected>Open</option>
@@ -63,52 +80,51 @@ export default function TurfBooking() {
                                             </select>
                                             <label htmlFor="email">Slot</label>
                                         </div>
-                                    </div>
-
-                                    <div className="col-6">
-
-                                        <Link to="//turfBooking" className="h5">
-                                            Price: 250/hr
-                                        </Link>
-                                    </div>
-
-                                    <div className="col-md-6">
-                                        <div
-                                            className="form-floating date"
-                                            id="date3"
-                                            data-target-input="nearest"
-                                        >
+                                        <br />
+                                        <div className="form-floating date" id="date3" data-target-input="nearest">
                                             <input
                                                 type="datetime-local"
                                                 className="form-control bg-white border-0"
                                                 id="datetime"
                                                 data-target="#date3"
-                                                data-toggle="datetimepicker"
-                                            />
+                                                data-toggle="datetimepicker" />
                                             <label htmlFor="datetime"><b>Date &amp; Time</b></label>
+                                        </div>
+
+                                        <br />
+
+                                        <Link to="//turfBooking" className="h5">
+                                            Price: 250/hr
+                                        </Link>
+
+                                    </div>
+
+
+                                    <div className="col-md-6 ">
+                                        <div className='col-12 text-center '>
+                                            <img className="img-fluid w-75  rounded-50 border m-3" style={{ height: "15rem", borderRadius: "12px", WebkitBoxShadow: "5px 5px 10px  black" }} src="img/phonephe.jpeg" alt="Image" />
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
                                 <hr></hr>
+                            
                                 <div className='row'>
-                                    <div className="col-md-3">
+                                    <div className="col-md-3 col-xl-3">
                                         <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
                                             Book
                                         </Link>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <button style={{ border: "none" }}  >
-                                            <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4 ">
-                                                Review
-                                            </Link>
-                                        </button>
+                                    </div>&nbsp;
+                                    <div className="col-md-3 col-xl-3">
+                                        <button onClick={() => setShowFields(true)} className="btn btn-primary rounded-pill py-2 px-4 ">Review</button>
+
+                                        {showFields && (
+                                            <form onSubmit={handleSubmit}>
+                                                <br />
+                                                    <textarea name="description" className='' style={{ borderRadius: "10px" }} value={formData.description} onChange={handleChange} placeholder='Enter The Description' />
+                                                    <br />
+                                                <button type="submit" className="btn btn-primary rounded-pill py-2 px-4 ">Submit</button>
+                                            </form>
+                                        )}
                                     </div>
                                 </div>
 
@@ -116,15 +132,13 @@ export default function TurfBooking() {
                         </div>
                     </div>
 
-                    <div className='col-3 bg-light' >
-                        <div className='container' >
-                            <div className='row' >
+
+                    <div className='col-xl-3 col-md-12 bg-light g-2 rounded'>
+                        <div className='container'>
+                            <div className='row'>
                                 <div className='col-12'>
-                                    <div className="blog-content  py-4  mt-2" >
+                                    <div className="blog-content  py-4  mt-2">
                                         <h5>Client-Name</h5>
-
-                                        {/* <i class="fas fa-star me-1 text-primary"></i> */}
-
                                         <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
                                         <hr />
                                     </div>
@@ -135,13 +149,7 @@ export default function TurfBooking() {
                 </div>
             </div>
 
-            <div className='container'>
-                <form>
-                    
-                        <input type="text" className="form-control" /><br/>
-                        <textarea className="form-control" />
-                </form>
-            </div>
+
             <Footer />
         </>
     )
