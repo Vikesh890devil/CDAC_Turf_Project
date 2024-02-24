@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,4 +54,17 @@ public class TurfController {
 		Collection<TurfDetails> allTurfs=turfServiceRef.getTurfsByManagerId(id);
 		return allTurfs;
 	}
+	
+	
+	@GetMapping("/{id}/image")
+    public ResponseEntity<byte[]> getImageById(@PathVariable Long id) {
+        byte[] imageData = turfServiceRef.getImageById(id);
+
+        if (imageData != null) {
+            // Set appropriate headers like content type
+            return ResponseEntity.ok().body(imageData);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

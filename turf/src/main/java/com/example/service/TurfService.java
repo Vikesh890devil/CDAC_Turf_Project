@@ -72,5 +72,10 @@ public class TurfService {
 		        List<TurfDetails> managerTurf = turfRepoRef.findByManager(manager);
 		        return managerTurf;
 		    }
+		 
+		 public byte[] getImageById(Long id) {
+		        Optional<TurfDetails> turfDetailsOptional = turfRepoRef.findById(id);
+		        return turfDetailsOptional.map(TurfDetails::getImage).orElse(null);
+		    }
 
 }
