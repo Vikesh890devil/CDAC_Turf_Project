@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Crediantials;
+import com.example.entity.ManagerRegistration;
 import com.example.entity.UserRegistration;
 import com.example.repository.CredRepo;
 import com.example.repository.UserRegistrationRepo;
@@ -85,12 +86,11 @@ public class UserRegistrationService {
 		}
 	}
 	
-	public boolean login(String username, String password) {
+	public UserRegistration login(String username, String password) {
 		UserRegistration user = RegRepoRef.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
-            return true;
+            return user;
         }
-        return false;
-    }
-
+       return null;
+	}
 }

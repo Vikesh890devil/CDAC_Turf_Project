@@ -84,13 +84,12 @@ public class ManagerRegistrationService {
 	}
 	
 	
-		public boolean login(String username, String password) {
+		public ManagerRegistration login(String username, String password) {
 	        ManagerRegistration user = MRegRepoRef.findByUsername(username);
 	        if (user != null && user.getPassword().equals(password)) {
-	            return true;
+	            return user;
 	        }
-	        return false;
-	    }
-	
+	       return null;
+		}
 }
 

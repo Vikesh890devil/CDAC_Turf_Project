@@ -25,7 +25,7 @@ public class TurfDetails {
 	private double price;
 	@Lob
 	@Column(name = "photo", columnDefinition = "LONGBLOB")
-	private byte[] image;
+	private String image;
 
 	@ManyToOne
 	@JoinColumn(name = "manager_id", referencedColumnName = "managerId")
@@ -36,7 +36,7 @@ public class TurfDetails {
 	}
 
 	public TurfDetails(Long turfId, String name, String description, double width, double length, double price,
-			byte[] image, ManagerRegistration manager) {
+			String image, ManagerRegistration manager) {
 		super();
 		this.turfId = turfId;
 		this.name = name;
@@ -88,11 +88,19 @@ public class TurfDetails {
 		this.length = length;
 	}
 
-	public byte[] getImage() {
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -104,19 +112,5 @@ public class TurfDetails {
 		this.manager = manager;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	@Override
-	public String toString() {
-		return "TurfDetails [turfId=" + turfId + ", name=" + name + ", description=" + description + ", width=" + width
-				+ ", length=" + length + ", price=" + price + ", image=" + Arrays.toString(image) + ", manager="
-				+ manager + "]";
-	}
 
 }

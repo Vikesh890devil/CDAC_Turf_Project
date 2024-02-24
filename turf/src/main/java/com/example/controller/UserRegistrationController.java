@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.entity.UserRegistration;
 import com.example.service.UserRegistrationService;
@@ -60,9 +59,9 @@ public class UserRegistrationController {
 //		public void updatePassword(@RequestBody String oPass,String nPass,@PathVariable("userId") Integer id) throws Exception {
 //			regServiceRef.updatePassword(nPass, oPass, id);
 //		}
-		
-		@PostMapping("/user-login")  //login user by username and password  
-		public boolean login(@RequestBody UserRegistration userRef ) {
+		  //login user by username and password 
+		@PostMapping("/user-login") 
+		public UserRegistration login(@RequestBody UserRegistration userRef ) {
 			return (regServiceRef.login(userRef.getUsername(), userRef.getPassword()));
 		}
 		

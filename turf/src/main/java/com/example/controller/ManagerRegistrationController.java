@@ -25,33 +25,33 @@ public class ManagerRegistrationController {
 	private ManagerRegistrationService mregServiceRef;
 	
 	
-	@GetMapping("/managerregister-api")
+	@GetMapping("/managerregister-api")  // get manager details 
 	public Collection<ManagerRegistration> getAllUsers(){
 		Collection<ManagerRegistration> allUsers = mregServiceRef.getAllUsers();
 		return allUsers;
 	}
 	
 	
-	@GetMapping("/managerregister-api/{userId}")
+	@GetMapping("/managerregister-api/{userId}")   // display manager details by using the userId
 	public ManagerRegistration getOneUser(@PathVariable("userId") Integer id) {
 		ManagerRegistration foundUser = mregServiceRef.getOneUser(id);
 		//System.out.println("The found movie is: " + foundMovie);
 		return foundUser;
 	}
 	
-	@PostMapping("/managerregister-api")
+	@PostMapping("/managerregister-api")   //  add managers
 	public void addNewUser(@RequestBody ManagerRegistration userRef) {
-		System.out.println(userRef);
+		//System.out.println(userRef);
 		mregServiceRef.addNewUser(userRef);
 	}
 	
 	
-	@DeleteMapping("/managerregister-api/{userId}")
+	@DeleteMapping("/managerregister-api/{userId}")   // delete the managers 
 	public void deleteOneUser(@PathVariable("userId") Integer id) {
 		mregServiceRef.deleteOneUser(id);
 	}
 	
-	@PutMapping("/managerregister-api/{userId}")
+	@PutMapping("/managerregister-api/{userId}")   // ,update manager details 
 	public void updateUser(@RequestBody ManagerRegistration userRef,@PathVariable("userId") Integer id) {
 		mregServiceRef.updateUser(userRef, id);
 	}
@@ -61,8 +61,8 @@ public class ManagerRegistrationController {
 //		mregServiceRef.updatePassword(nPass, oPass, id);
 //	}
 	
-	@GetMapping("/manager-login")
-	public boolean login(@RequestBody ManagerRegistration userRef) {
+	@PostMapping("/manager-login")   // manager login 
+	public ManagerRegistration login(@RequestBody ManagerRegistration userRef) {
 		return (mregServiceRef.login(userRef.getUsername(), userRef.getPassword()));
 	}
 	

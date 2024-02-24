@@ -3,6 +3,7 @@ package com.example.service;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,16 @@ public class TurfService {
 	@Autowired
 	private ManagerRegistrationService managerServ;
 
-
+	@Autowired
+	FileStorageService fileStorageService;
+	
+	private String storeImage(MultipartFile file) throws IOException {
+		// Generate a UUID for the file
+				String fileId = UUID.randomUUID().toString();
+				// Save the file to the file storage location with the UUID as the filename
+				return fileStorageService.storeFile(file, fileId, "TurfImage");
+	}
+	
 	public String saveData(MultipartFile file, String name, String description, double width, double length,double price, Integer id)
 			throws IOException {
 		TurfDetails turfdetails = new TurfDetails();
@@ -31,7 +41,7 @@ public class TurfService {
 		turfdetails.setName(name);
 		turfdetails.setWidth(width);
 		turfdetails.setPrice(price);
-		turfdetails.setImage(file.getBytes());
+		turfdetails.setImage(storeImage(file));
 //		detail.add(turfdetails);
 
 		ManagerRegistration man = managerServ.getOneUser(id);
@@ -67,10 +77,11 @@ public class TurfService {
 
 	        return null; 
 	    }
-		 public List<TurfDetails> getTurfsByManagerId(Integer managerId) {
-		         ManagerRegistration manager = managerServ.getOneUser(managerId);
-		        List<TurfDetails> managerTurf = turfRepoRef.findByManager(manager);
-		        return managerTurf;
-		    }
+	  
+//	  public String getImageById(Long id) {
+//		  
+//		  Optional<TurfDetails> turfDetailsOptional =turfRepoRef.findById(id);
+//		  return turfDetailsOptional.map(TurfDetails::getImage).orElse(null); 
+//	  }
 
 }

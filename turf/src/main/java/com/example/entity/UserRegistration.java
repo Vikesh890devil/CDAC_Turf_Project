@@ -14,7 +14,7 @@ import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "user_details", uniqueConstraints = @UniqueConstraint(columnNames = { "username" }))
-@SequenceGenerator(name = "port_gen", sequenceName = "port_gen", initialValue = 100)
+@SequenceGenerator(name = "port_gen", sequenceName = "port_gen", initialValue = 500)
 public class UserRegistration {
 
 	@Id
@@ -31,9 +31,6 @@ public class UserRegistration {
 	public UserRegistration() {
 		// TODO Auto-generated constructor stub
 	}
-
-
-	
 
 	public UserRegistration(int userId, String name, int age, String mobileNo, String username, String password) {
 	super();
