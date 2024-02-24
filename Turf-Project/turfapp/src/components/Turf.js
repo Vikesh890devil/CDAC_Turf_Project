@@ -61,10 +61,10 @@ export default function About() {
                     <div className="row g-4">
                         {Ground.map((groumd) => (
                             <div className="col-lg-4 col-md-6">
-                                <div className="blog-item">
-                                    <div className="blog-img">
+                                <div className="blog-item" >
+                                    <div className="blog-img" >
 
-                                        <div className="blog-img-inner">
+                                        <div className="blog-img-inner" style={{height:"25rem"}}>
                                             <img src={'TurfImage/TurfImage/' + groumd.image}
                                                 className="img-fluid w-100 rounded-top"
 

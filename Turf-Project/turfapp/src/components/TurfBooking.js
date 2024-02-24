@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useRef, useState } from 'react'
-=======
-import React, { useState } from 'react'
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
 import HeaderUser from '../common/HeaderUser'
 import Footer from '../common/Footer'
 import { Link } from 'react-router-dom'
@@ -11,7 +7,6 @@ import axios from 'axios';
 
 
 export default function TurfBooking() {
-<<<<<<< HEAD
     const URL = 'http://localhost:6162';
     const [groumd, setTurfDetails] = useState([]);
     const [Review, setReviewDetails] = useState([]);
@@ -74,26 +69,6 @@ export default function TurfBooking() {
             alert('Error saving data!');
             console.error(error);
         }
-=======
-
-
-    const [showFields, setShowFields] = useState(false)
-    const [formData, setFormData] = useState({
-        name: '',
-        description: '',
-    })
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Form submitted:', formData)
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
     }
 
     return (
@@ -112,28 +87,18 @@ export default function TurfBooking() {
             <div className='container mt-5 mb-5'>
                 <div className='row'>
                     <div className='col-xl-3 col-md-12 g-3'>
-                        <div className='col-12'>
-<<<<<<< HEAD
+                        <div className='col-12' >
                             <img className="img-fluid w-100 rounded " src={"TurfImage/TurfImage/" + groumd.image} alt="Image"
-=======
-                            <img className="img-fluid w-100 rounded " src="img/blog-2.jpg" alt="Image"
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
-                                style={{ height: "250px", width: "450px" }} />
+                                style={{ height: "31rem", width: "450px" }} />
                         </div>
                     </div>
 
                     <div className='col-xl-6 col-md-12 g-2 rounded'>
                         <div className='container'>
                             <div className="blog-content border border-top-2 rounded p-4 bg-light">
-<<<<<<< HEAD
 
                                 <h2>{groumd.name}</h2>
 
-=======
-                                <Link to="/turfBooking" className="h3">
-                                    Cricket Turf
-                                </Link>
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
                                 <div className="row">
                                     <p className="my-3">
                                         <h4>{groumd.description}</h4>
@@ -169,23 +134,15 @@ export default function TurfBooking() {
                                                 id="datetime"
                                                 name='date'
                                                 data-target="#date3"
-<<<<<<< HEAD
                                                 data-toggle="datetimepicker"
                                                 ref={date} />
-=======
-                                                data-toggle="datetimepicker" />
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
                                             <label htmlFor="datetime"><b>Date &amp; Time</b></label>
                                         </div>
 
                                         <br />
 
                                         <Link to="//turfBooking" className="h5">
-<<<<<<< HEAD
                                             Price: {groumd.price}/hr
-=======
-                                            Price: 250/hr
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
                                         </Link>
 
                                     </div>
@@ -198,21 +155,12 @@ export default function TurfBooking() {
                                     </div>
                                 </div>
                                 <hr></hr>
-<<<<<<< HEAD
 
                                 <div className='row'>
                                     <div className="col-md-3 col-xl-3">
                                         <button type="submit" className="btn btn-primary rounded-pill py-2 px-4 " onClick={handeSubmitBook}>Book</button>
 
 
-=======
-                            
-                                <div className='row'>
-                                    <div className="col-md-3 col-xl-3">
-                                        <Link to="/turfBooking" className="btn btn-primary rounded-pill py-2 px-4">
-                                            Book
-                                        </Link>
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
                                     </div>&nbsp;
                                     <div className="col-md-3 col-xl-3">
                                         <button onClick={() => setShowFields(true)} className="btn btn-primary rounded-pill py-2 px-4 ">Review</button>
@@ -220,15 +168,9 @@ export default function TurfBooking() {
                                         {showFields && (
                                             <form onSubmit={handleSubmit}>
                                                 <br />
-<<<<<<< HEAD
                                                 <textarea name="description" className='' style={{ borderRadius: "10px" }} placeholder='Enter The Description' ref={description} />
                                                 <br />
                                                 <button type="submit" className="btn btn-primary rounded-pill py-2 px-4"  >Submit</button>
-=======
-                                                    <textarea name="description" className='' style={{ borderRadius: "10px" }} value={formData.description} onChange={handleChange} placeholder='Enter The Description' />
-                                                    <br />
-                                                <button type="submit" className="btn btn-primary rounded-pill py-2 px-4 ">Submit</button>
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
                                             </form>
                                         )}
                                     </div>
@@ -241,24 +183,19 @@ export default function TurfBooking() {
 
                     <div className='col-xl-3 col-md-12 bg-light g-2 rounded'>
                         <div className='container'>
-                            <div className='row'>
+                            <div className='row overflow-scroll' style={{height:"30rem"}}>
                                 <div className='col-12'>
                                     <div className="blog-content  py-4  mt-2">
-<<<<<<< HEAD
                                         {Review.map((review) => (
                                             <tr>
                                                 <h5>{review.user.username}</h5>
                                                 <p>{review.description}</p>
+                                                <hr />
 
                                             </tr>
                                         ))
                                         }
-
-=======
-                                        <h5>Client-Name</h5>
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                                        <hr />
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -266,11 +203,6 @@ export default function TurfBooking() {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b567ab2c482a107444bc329a585286e6232715d0
             <Footer />
         </>
     )

@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../common/Header'
 import Footer from '../common/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function Home() {
+    const [logindata, setlogindata] = useState([]);
+    const history = useNavigate();
+
+    const checklogin = () => {
+        const getusers = localStorage.getItem('userId');
+        console.log(getusers)
+        if (getusers && getusers.length > 0) {
+            const user = JSON.parse(getusers);
+            setlogindata(user);
+            history("/turf");
+        } else {
+            history("/login");
+        }
+    }
     return (
         <>
+
             <Header></Header>
-
             {/* Carousel Start */}
-
             <div className="carousel-header " >
 
                 <div id="carouselId" className="carousel slide" data-bs-ride="carousel"  >
@@ -77,10 +90,6 @@ export default function Home() {
             </div>
 
             {/* Carousel End */}
-
-
-
-
             {/* Booking turf start   */}
 
             <section className="about_section layout_padding-bottom  mt-5">
@@ -102,7 +111,8 @@ export default function Home() {
                                     need to be sure there isn't anything embarrassing hidden in the
                                     middle of text. All
                                 </p>
-                                <Link to="/login" className='btn btn-primary py-2 px-5 ' > Get Click </Link>
+                                {/* <Link to="/login" className='btn btn-primary py-2 px-5 ' >Get Click </Link> */}
+                                <button  className='btn btn-primary py-2 px-5' onClick={checklogin}> Get Click</button>
                                 <br /><br />
                             </div>
                         </div>
@@ -165,28 +175,10 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
             {/* Gallary End */}
-
-
-
-
-
-
-
-
-
             <Footer></Footer>
 
 
-
-
-
-
-
-
         </>
-
-
     )
 }

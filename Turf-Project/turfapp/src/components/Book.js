@@ -12,20 +12,19 @@ export default function Book() {
     }, []);
 
     const BookingPage = () => {
-        const getusers = localStorage.getItem("userlogin");
+        const getusers = localStorage.getItem("userId");
         if (getusers && getusers.length > 0) {
             const user = JSON.parse(getusers);
             setlogindata(user);
 
-        }else{
+        } else {
             history("/login");
         }
     }
     return (
         <>
-
             {
-                    logindata.length === 0 ? "error" :
+                logindata.length === 0 ? "error" :
                     <>
                         <Header></Header>
                         {/* Header start */}

@@ -17,7 +17,7 @@ import Error404 from "./components/Error404";
 import AdminLogin from "./admin/AdminLogin";
 import TurfBooking from "./components/TurfBooking";
 import AdminRegistration from "./admin/AdminRegistration";
-import QRcode from "./components/QRcode";
+import HomeAdmin from "./admin/HomeAdmin";
 
 
 const router = createBrowserRouter([
@@ -94,14 +94,9 @@ const router = createBrowserRouter([
             element:<AdminRegistration/>
           },
           {
-            path:"/QRcode",
-            element:<QRcode/>
-          }
-          
-
-          
-
-          
+            path:"/homeadmin",
+            element:<HomeAdmin/>
+          }  
         ]
     }
 ]);

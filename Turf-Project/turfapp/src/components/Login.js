@@ -1,112 +1,49 @@
-import React, {useRef} from 'react';
+import React, { useRef, useState } from 'react';
 import UserService from '../Services/UserService';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  const history=useNavigate();
+  const history = useNavigate();
 
-  const username=useRef();
-  const password=useRef();
+  const username = useRef();
+  const password = useRef();
   const handleSubmit = (e) => {
-  e.preventDefault();
-  const Users = {
-    username: username.current.value,
-    password: password.current.value
-  }
-  UserService.loginCheck(Users).then((res)=>{
-    const result=res.data;
-    
-    if(result.username === Users.username && result.password === Users.password){
-      alert("success full login");
-      //console.log(result.userId)
-     // localStorage.setItem("userlogin",JSON.stringify(result));
-      localStorage.setItem("userId",JSON.stringify(result.userId))
-      history("/turf",)
-    }else{
-      alert("failed to login");
+    e.preventDefault();
+    const Users = {
+      username: username.current.value,
+      password: password.current.value
     }
-  }).catch((err)=>{
-    alert("failed to login"+err.message);
-  })
-  
+    UserService.loginCheck(Users)
+      .then((res) => {
+        const result = res.data;
+        console.log(result);
+
+        if (result.username === Users.username && result.password === Users.password) {
+          alert("Successfully logged in");
+          localStorage.setItem("userId", JSON.stringify(result.userId));
+          // const expirationDate = new Date(Date.now() + 864e5);
+          // const cookieValue = JSON.stringify(result);
+          // document.cookie = `userlogin=${cookieValue}; expires=${expirationDate.toUTCString()}; path=/`;
+          history("/turf");
+        } else {
+          alert("Failed to login Invalid username or password.");
+        }
+      })
+      .catch((err) => {
+        alert("Failed to log in: " + err.message);
+      });
+
   };
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <div className="container-fluid bg-breadcrumb">
         <div className="container text-center" style={{ maxWidth: 900 }}>
           <h3 className="text-white display-3">Login</h3>
         </div>
       </div>
-      
-      {/* <section className="login_part section_padding pt-5 pb-5" >
-        <div className="container " style={{ border: "1px solid", borderRadius: "30px" }}>
-          <div className="row align-items-center pt-5 pb-5" >
-            <div className="col-lg-6 col-md-6 log"  >
-              <div className="login_part_text text-center">
-                <div className="login_part_text_iner">
-                  <h2>New User</h2>
-                  <p>
-                    If you're looking for a concise and engaging line for a turf signup form, you might consider something like:
-                  </p>
-                  <button type='button' className='btn btn-success'>
-                    <Link to="/register" className="btn_3">
-                         Create an Account
-                    </Link>
-                   
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md-6">
-              <div className="login_part_form">
-                <div className="login_part_form_iner">
-                  <h3 className='h3 pt-4'>
-                    Welcome<br />
-                    Please Sign in now
-                  </h3>
-                  <form
-                    className='form-control w'
-                  >
-                    <div className="col-md-12 pt-3" >
-                      <input
-                        type="text"
-                        className="form-control"
-                        name="username"
-                        placeholder="Username"
-                        ref={username}
-                      />
-                    </div>
-                    <div className="col-md-12 pt-4 ">
-                      <input
-                        type="password"
-                        className="form-control"
-                        name="password"
-                        placeholder="Password"
-                        ref={password}
-                        />
-                    </div>
-                    <div className="col-md-12 pt-4">
-
-
-                      <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
-                        Log In
-                      </button>
-                      <a className="lost_pass" href="#">
-                        Forgot password?
-                      </a>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      
-
       {/*================login_part Area =================*/}
       <section className="login_part section_padding pt-5 pb-5" >
         <div className="container ">
@@ -153,8 +90,8 @@ export default function Login() {
                       <Link className="registration" to="/register">
                         Registration
                       </Link>
-                      
-                     
+
+
                     </div>
                   </form>
                 </div>

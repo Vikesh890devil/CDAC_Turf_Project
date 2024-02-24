@@ -23,6 +23,9 @@ export default function GroundTable() {
     fetchAllTurfDetails();
   }, []); 
 
+  const deleteTurf=(turfId)=>{
+       console.log(turfId);
+  }
 
 
     return (
@@ -62,7 +65,7 @@ export default function GroundTable() {
                                 <td scope="row">
                                 <img src={"TurfImage/TurfImage/"+groumd.image} style={{width:"7rem"}} /></td>
                                 <td scope="row">{groumd.description}</td>
-                                <td><button type='button' className='btn btn-danger'>Delete</button></td>
+                                <td><button type='button' className='btn btn-danger' onClick={() => deleteTurf(groumd.turfId)}>Delete</button></td>
                             </tr>
                          ))
                         }   
