@@ -2,20 +2,28 @@ import React, { useEffect, useState } from 'react'
 import HeaderAdmin from '../common/HeaderAdmin'
 import Footer from '../common/Footer'
 import GroundService from '../Services/Ground';
+import axios from 'axios';
 
 export default function GroundTable() {
+    const URL = 'http://localhost:6162';
+    const [Ground, setTurfDetails] = useState([]);
 
-    const [Ground,setGround] = useState([]);
+   
+  useEffect(() => {
+    const fetchAllTurfDetails = async () => {
+      try {
+        const response = await axios.get(URL + '/get-allTurf');
+        console.log(response)
+        setTurfDetails(response.data);
+      } catch (error) {
+        console.error('Error fetching all turf details:', error);
+      }
+    };
 
-    useEffect(()=>{
-    GroundService.getGround().then((res)=>{
-        setGround(res.data);
-        console.log(res.data);
-    }).catch(error =>{
-      console.log(error);
-    })
-    
- },[]);
+    fetchAllTurfDetails();
+  }, []); 
+
+
 
     return (
         <>
@@ -51,9 +59,9 @@ export default function GroundTable() {
                                 <td scope="row">{groumd.width}</td>
                                 <td scope="row">{groumd.length}</td>
                                 <td scope="row">{groumd.price}</td>
-                                <td scope="row">{groumd.image}</td>
+                                <td scope="row">
+                                <img src={"TurfImage/TurfImage/"+groumd.image} style={{width:"7rem"}} /></td>
                                 <td scope="row">{groumd.description}</td>
-                                <td><button type='button' className='btn btn-success'>Update</button></td>
                                 <td><button type='button' className='btn btn-danger'>Delete</button></td>
                             </tr>
                          ))

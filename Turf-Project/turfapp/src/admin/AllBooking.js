@@ -5,17 +5,20 @@ import BookingService from '../Services/Booking';
 
 export default function AllBooking() {
 
-    const [Booking,setBooking] = useState([]);
+    const [Booking, setBooking] = useState([]);
 
-    useEffect(()=>{
-        BookingService.getBooking().then((res)=>{
-        setBooking(res.data);
-        console.log(res.data);
-    }).catch(error =>{
-      console.log(error);
-    })
-    
- },[]);
+    const getallBookings = async () => {
+        await BookingService.getBooking().then((res) => {
+            setBooking(res.data);
+            console.log(res.data);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    useEffect(() => {
+        getallBookings();
+    }, []);
 
 
     return (
@@ -30,41 +33,41 @@ export default function AllBooking() {
             {/* Header End */}
             <div className='container' >
                 <div className='row pt-5 pb-5'>
-                <div className='table-responsive'>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Ground Name</th>
-                                <th scope="col">Booking Id</th>
-                                <th scope="col">Customer Name</th>
-                                <th scope="col">Cunstomer Contact</th>
-                                <th scope="col">Booking Date</th>
-                                <th scope="col">Booking Time Slot</th>
-                                <th scope="col">Total Payable Amount</th>
-                                <th scope="col">Booking Status</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                        { Booking.map((booking)=>(
-                            <tr>
-                                <td scope="row">{booking.turf.name}</td>
-                                <td scope="row">{booking.bookingId}</td>
-                                <td scope="row">{booking.user.name}</td>
-                                <td scope="row">{booking.user.mobileNo}</td>
-                                <td scope="row">{booking.bookingDate}</td>
-                                <td scope="row">{booking.timeSlot}</td>
-                                <td scope="row">cash...</td>
-                                <td scope="row">pending...</td>
-                                <td><button type='button' className='btn btn-danger'>Verify Booking</button></td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                    <div className='table-responsive'>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ground Name</th>
+                                    <th scope="col">Booking Id</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Cunstomer Contact</th>
+                                    <th scope="col">Booking Date</th>
+                                    <th scope="col">Booking Time Slot</th>
+                                    <th scope="col">Total Payable Amount</th>
+                                    <th scope="col">Booking Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Booking && Booking.map((booking) => (
+                                    <tr>
+                                        <td scope="row">{booking?.turf?.name}</td>
+                                        <td scope="row">{booking?.bookingId}</td>
+                                        <td scope="row">{booking?.user?.name}</td>
+                                        <td scope="row">{booking?.user?.mobileNo}</td>
+                                        <td scope="row">{booking?.bookingDate}</td>
+                                        <td scope="row">{booking?.timeSlot}</td>
+                                        <td scope="row">cash...</td>
+                                        <td scope="row">pending...</td>
+                                        <td><button type='button' className='btn btn-danger'>Verify</button></td>
+                                    </tr>
+                                ))
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        <Footer></Footer>
+            <Footer></Footer>
         </>
     )
 }

@@ -40,8 +40,7 @@ export default function Displayallusers() {
         <th scope='col'>User Mobile No</th>
         <th scope='col'>User User Name</th> 
         <th scope='col'>User Password</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
+       
        </tr>
      </thead>
      <tbody>
@@ -53,8 +52,6 @@ export default function Displayallusers() {
         <td scope="row">{usr.mobileNo}</td>
         <td scope="row">{usr.username}</td>
         <td scope="row">{usr.password}</td>
-        <td><button type='button' className='btn btn-success'>Update</button></td>
-        <td><button type='button' className='btn btn-danger'>Delete</button></td>
        </tr>
       ))
       }
