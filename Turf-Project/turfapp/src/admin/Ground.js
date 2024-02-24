@@ -1,40 +1,53 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import HeaderAdmin from "../common/HeaderAdmin";
 import Footer from "../common/Footer";
 import GroundService from "../Services/Ground";
+import axios from "axios";
 
 export default function Ground() {
+  const URL ='http://localhost:6162';
 
-  const [groundName,setGroundName]=useState("");
-  const [groundWidth,setGroundWidth]=useState("");
-  const [groundLength,setGroundLength]=useState("");
-  const [groundPrice,setGroundPrice]=useState("");
-  const [groundImage,setGroundImage]=useState("");
-  const [groundDescription,setGroundDescription]=useState("");
+  const [file, setFile] = useState(null);
+  const [turfName, setTurfName] = useState('');
+  const [description, setDescription] = useState('');
+  const [width, setWidth] = useState('');
+  const [length, setLength] = useState('');
+  const [price, setPrice] = useState('');
+  const [managerId, setManagerId] = useState();
 
-  const handeSubmit= ()=>{
-    const ground={
-      "name":groundName,
-      "length":groundWidth,
-      "width":groundLength,
-      "price":groundPrice,
-      "description":groundDescription
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+   const handleSubmit = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('turfName', turfName);
+      formData.append('description', description);
+      formData.append('width', width);
+      formData.append('length', length);
+      formData.append('price', price);
+
+      await axios.post(URL+`/turf-data/save/${managerId}`, formData,{
+        headers:{"Content-Type":"multipart/form-data"}
+      });
+      //console.log(formData);
+      alert('Data saved successfully!');
+
+    } catch (error) {
+      alert('Error saving data!');
+      console.error(error);
     }
-
-    const mId=1;
-
-    GroundService.addGround(mId,ground).then((res)=>{
-      alert(res.data);
-    }).catch((err)=>{
-      alert(err.message);
-    })
-
-  }
-
+  };
+  useEffect(() => {
+    const manId = localStorage.getItem("managerId");
+    setManagerId(manId);
+  });
   return (
     <>
-    <HeaderAdmin></HeaderAdmin>
+      <HeaderAdmin></HeaderAdmin>
       {/* Header start */}
       <div className="container-fluid bg-breadcrumb">
         <div className="container text-center" style={{ maxWidth: 900 }}>
@@ -42,6 +55,7 @@ export default function Ground() {
         </div>
       </div>
       {/* Header End */}
+
       <div className="container">
         <div className="row">
           <div className="col-3 pt-5"></div>
@@ -50,7 +64,7 @@ export default function Ground() {
             <h1 className="h1  text-center">
               <u>Add Ground</u>
             </h1>
-            <form className="row g-3 pt-3 pb-5">
+            <form encType="multipart/form-data" className="row g-3 pt-3 pb-5">
               <div className="col-md-6">
                 <label htmlFor="GroundName" className="form-label">
                   Ground Name
@@ -58,12 +72,9 @@ export default function Ground() {
                 <input
                   type="text"
                   className="form-control"
-                  name="name"
-                 
-                  id="name"
-                  placeholder="Enter the Ground Name"
-                  onChange={(e)=>setGroundName(e.target.value)}
-                />
+                  placeholder="Enter Ground Name"
+                  name="turfName" id="turfName"
+                  onChange={(e) => setTurfName(e.target.value)} required />
               </div>
 
               <div className="col-md-6">
@@ -73,11 +84,8 @@ export default function Ground() {
                 <input
                   type="text"
                   className="form-control"
-                  name="width"
-                 
-                  id="width"
-                  placeholder="Enter the Ground Width"
-                  onChange={(e)=>setGroundWidth(e.target.value)}
+                  name="width" id="width"
+                  onChange={(e) => setWidth(e.target.value)} required
                 />
               </div>
 
@@ -88,11 +96,8 @@ export default function Ground() {
                 <input
                   type="text"
                   className="form-control"
-                  name="length"
-                 
-                  id="length"
-                  placeholder="Enter the Ground Length"
-                  onChange={(e)=>setGroundLength(e.target.value)}
+                  name="length" id="length"
+                  onChange={(e) => setLength(e.target.value)} required
                 />
               </div>
 
@@ -103,11 +108,8 @@ export default function Ground() {
                 <input
                   type="number"
                   className="form-control"
-                  name="price"
-                
-                  id="price"
-                  placeholder="Enter the Price"
-                  onChange={(e)=>setGroundPrice(e.target.value)}
+                  name="price" id="price"
+                  onChange={(e) => setPrice(e.target.value)} required
                 />
               </div>
 
@@ -115,12 +117,10 @@ export default function Ground() {
                 <label htmlFor="GroundHeight" className="form-label">
                   Select Ground Image
                 </label>
-                <input type="file" 
-                className="form-control" 
-                name="image"
-               
-                id="image" 
-                onChange={(e)=>setGroundImage(e.target.value)}/>
+                <input type="file"
+                  className="form-control"
+                  name="file" id="file"
+                  onChange={handleFileChange} required />
 
               </div>
 
@@ -131,18 +131,15 @@ export default function Ground() {
                 <textarea
                   type="text"
                   className="form-control"
-                  name="description"
-                 
-                  id="description"
-                  placeholder="Enter the Ground Description"
-                  onChange={(e)=>setGroundDescription(e.target.value)}
+                  name="description" id="description"
+                  onChange={(e) => setDescription(e.target.value)} required
                 />
               </div>
 
               <div className="col-12">
                 <button
                   type="submit"
-                  className="btn btn-primary" onClick={handeSubmit}
+                  className="btn btn-primary" onClick={handleSubmit}
                   style={{ width: "calc(100% )" }}
                 >
                   Add Ground

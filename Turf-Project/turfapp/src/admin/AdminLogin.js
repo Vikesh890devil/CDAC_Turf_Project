@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Footer from '../common/Footer';
 import { useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
 import AdminService from '../Services/AdminService';
 
-export default function AdminLogin() {
+export default function AdminLogin() { 
+
   const history = useNavigate();
   const username = useRef();
   const password = useRef();
@@ -13,14 +14,17 @@ export default function AdminLogin() {
     e.preventDefault();
     const Admin = {
       username: username.current.value,
-      password: password.current.value
+      password: password.current.value,
+
     }
+    
     AdminService.loginCheck(Admin).then((res) => {
-      console.log(res.data);
-      if (res.data === true) {
-        alert("success full login");
-        localStorage.setItem("adminlogin", JSON.stringify(Admin));
-        history("/allBooking",)
+      const result=res.data;
+      if (result.username === Admin.username && result.password === Admin.password) {
+         alert("success full login");
+         localStorage.setItem("managerId", JSON.stringify(result.managerId));
+        // console.log(result.managerId);
+         history("/allBooking",)
       } else {
         alert("failed to login");
       }
@@ -29,6 +33,8 @@ export default function AdminLogin() {
     })
 
   };
+
+  
   return (
     <>
       <Header></Header>
@@ -37,6 +43,8 @@ export default function AdminLogin() {
           <h3 className="text-white display-3">Admin Login</h3>
         </div>
       </div>
+
+
       {/*================login_part Area =================*/}
       <section className="login_part section_padding pt-5 pb-5" >
         <div className="container ">
@@ -50,8 +58,7 @@ export default function AdminLogin() {
             </div>
             <div className="col-lg-6 col-md-6">
               <div className="login_part_form">
-                <div className="login_part_form_iner">
-                  
+                <div className="login_part_form_iner">                  
                   <form
                     className='form-control py-3'
                   >

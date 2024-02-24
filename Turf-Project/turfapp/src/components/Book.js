@@ -153,8 +153,6 @@ export default function Book() {
                                                         <label htmlFor="email">Slot</label>
                                                     </div>
                                                 </div>
-
-
                                                 <div className="col-12">
                                                     <button
                                                         className="btn btn-primary text-white w-100 py-3"

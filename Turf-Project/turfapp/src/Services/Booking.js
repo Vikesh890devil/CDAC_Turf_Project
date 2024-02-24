@@ -4,12 +4,15 @@ const URL ='http://localhost:6162';
 class BookingService 
 {
     //Add Booking
-    addBooking(mId,Booking){
-        return axios.post(URL+"/input/turf-data/save/" + mId , Booking);
+    addBooking(userid,turfId){
+        return axios.post(URL+"/add-booking/{userid}/{turfId}" + userid , turfId);
     }
     //get all Booking details
     getBooking(){
         return axios.get(URL+"/fetch-data");
+    }
+    getMapping(uId){
+        return axios.get(URL+"/get-user-bookings/{uId}" );
     }
 }
 

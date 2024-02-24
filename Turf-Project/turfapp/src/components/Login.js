@@ -6,9 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const history=useNavigate();
-  const username = useRef();
-  const password = useRef();
 
+  const username=useRef();
+  const password=useRef();
   const handleSubmit = (e) => {
   e.preventDefault();
   const Users = {
@@ -16,10 +16,13 @@ export default function Login() {
     password: password.current.value
   }
   UserService.loginCheck(Users).then((res)=>{
-    console.log(res.data);
-    if(res.data===true){
+    const result=res.data;
+    
+    if(result.username === Users.username && result.password === Users.password){
       alert("success full login");
-      localStorage.setItem("userlogin",JSON.stringify(Users));
+      //console.log(result.userId)
+     // localStorage.setItem("userlogin",JSON.stringify(result));
+      localStorage.setItem("userId",JSON.stringify(result.userId))
       history("/turf",)
     }else{
       alert("failed to login");
