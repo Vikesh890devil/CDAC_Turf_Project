@@ -41,8 +41,8 @@ export default function MyBooking() {
                                     <th scope="col">Booking Date</th>
                                     <th scope="col">Booking Time Slot</th>
                                     <th scope="col">Total Payable Amount</th>
-                                    <th scope="col">Booking Status</th>
-                                    <th scope="col">Action</th>
+                                    {/* <th scope="col">Booking Status</th>
+                                    <th scope="col">Action</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,7 +57,7 @@ export default function MyBooking() {
                                         <td scope="row">{booking?.timeSlot}</td>
                                         <td scope="row">{booking?.turf?.price}</td>
 
-                                        <td><button type='button' className='btn btn-danger'>Cancle Booking</button></td>
+                                        {/* <td><button type='button' className='btn btn-danger'>Cancle Booking</button></td> */}
                                     </tr>
 
                                 ))

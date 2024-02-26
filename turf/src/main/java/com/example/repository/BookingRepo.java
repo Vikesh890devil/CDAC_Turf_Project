@@ -15,7 +15,7 @@ public interface BookingRepo extends JpaRepository<Booking, Long> {
 	
 	List<Booking> findByManager(ManagerRegistration manager);
 	
-	@Query("select b from Booking b where b.bookingDate= :date and b.timeSlot= :slot")
-	Booking checkIfBooked(String date,String slot);
+	@Query("select b from Booking b where b.bookingDate= :date and b.timeSlot= :slot and b.turf.turfId= :tId")
+	Booking checkIfBooked(String date,String slot,Long tId);
 
 }

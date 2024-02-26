@@ -27,7 +27,7 @@ public class BookingService {
 
 
 	public String addBooking(String date,String slot,Integer id,Long tId) {
-		if(checkBooked(date , slot)) {
+		if(checkBooked(date , slot,tId)) {
 		Booking booking=new Booking();
 		booking.setBookingDate(date);
 		booking.setTimeSlot(slot);
@@ -65,8 +65,8 @@ public class BookingService {
 		        return bookings;
 		    }	
 		  
-		  public boolean checkBooked(String date ,String slot) {
-			  if(bookingRepo.checkIfBooked(date, slot)==null)
+		  public boolean checkBooked(String date ,String slot,Long tId) {
+			  if(bookingRepo.checkIfBooked(date, slot,tId)==null)
 				  return true;
 			  
 			  return false;
