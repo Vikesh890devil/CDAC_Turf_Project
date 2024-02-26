@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../common/HeaderAdmin";
 import Footer from "../common/Footer";
 import GroundService from "../Services/Ground";
@@ -10,35 +10,34 @@ export default function Ground() {
   const URL ='http://localhost:6162';
 
   const [file, setFile] = useState(null);
-  const [turfName, setTurfName] = useState('');
-  const [description, setDescription] = useState('');
-  const [width, setWidth] = useState('');
-  const [length, setLength] = useState('');
-  const [price, setPrice] = useState('');
+  const [turfName, setTurfName] = useState("");
+  const [description, setDescription] = useState("");
+  const [width, setWidth] = useState("");
+  const [length, setLength] = useState("");
+  const [price, setPrice] = useState("");
   const [managerId, setManagerId] = useState();
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
 
-   const handleSubmit = async () => {
+  const handleSubmit = async () => {
     try {
       const formData = new FormData();
-      formData.append('file', file);
-      formData.append('turfName', turfName);
-      formData.append('description', description);
-      formData.append('width', width);
-      formData.append('length', length);
-      formData.append('price', price);
+      formData.append("file", file);
+      formData.append("turfName", turfName);
+      formData.append("description", description);
+      formData.append("width", width);
+      formData.append("length", length);
+      formData.append("price", price);
 
-      await axios.post(URL+`/turf-data/save/${managerId}`, formData,{
-        headers:{"Content-Type":"multipart/form-data"}
+      await axios.post(URL + `/turf-data/save/${managerId}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
       //console.log(formData);
-      alert('Data saved successfully!');
-
+      alert("Data saved successfully!");
     } catch (error) {
-      alert('Error saving data!');
+      alert("Error saving data!");
       console.error(error);
     }
   };
@@ -89,8 +88,11 @@ export default function Ground() {
                   type="text"
                   className="form-control"
                   placeholder="Enter Ground Name"
-                  name="turfName" id="turfName"
-                  onChange={(e) => setTurfName(e.target.value)} required />
+                  name="turfName"
+                  id="turfName"
+                  onChange={(e) => setTurfName(e.target.value)}
+                  required
+                />
               </div>
 
               <div className="col-md-6">
@@ -136,11 +138,14 @@ export default function Ground() {
                 <label htmlFor="GroundHeight" className="form-label">
                   Select Ground Image
                 </label>
-                <input type="file"
+                <input
+                  type="file"
                   className="form-control"
-                  name="file" id="file"
-                  onChange={handleFileChange} required />
-
+                  name="file"
+                  id="file"
+                  onChange={handleFileChange}
+                  required
+                />
               </div>
 
               <div className="col-md-6">

@@ -26,7 +26,8 @@ public class BookingService {
 	ManagerRegistrationService managerServ;
 
 
-	public void addBooking(String date,String slot,Integer id,Long tId) {
+	public String addBooking(String date,String slot,Integer id,Long tId) {
+		if(checkBooked(date , slot,tId)) {
 		Booking booking=new Booking();
 		booking.setBookingDate(date);
 		booking.setTimeSlot(slot);
@@ -38,7 +39,10 @@ public class BookingService {
 		booking.setTurf(turf);
 		booking.setManager(manager);
 		bookingRepo.save(booking);
+		return "booking sucessfull";
+		}
 		
+		return "the slot u chose is already booked";
 		
 	}
 	
@@ -60,5 +64,13 @@ public class BookingService {
 		        List<Booking> bookings = bookingRepo.findByManager(manager);
 		        return bookings;
 		    }	
+		  
+		  public boolean checkBooked(String date ,String slot,Long tId) {
+			  if(bookingRepo.checkIfBooked(date, slot,tId)==null)
+				  return true;
+			  
+			  return false;
+			  
+		  }
 
 }

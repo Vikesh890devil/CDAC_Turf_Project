@@ -4,8 +4,10 @@ import Footer from '../common/Footer'
 import GroundService from '../Services/Ground';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function GroundTable() {
+    const history=useNavigate();
     const history=useNavigate();
     const URL = 'http://localhost:6162';
     const [Ground, setTurfDetails] = useState([]);

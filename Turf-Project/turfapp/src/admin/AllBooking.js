@@ -34,53 +34,61 @@ export default function AllBooking() {
     }, []);
 
 
-    return (
-        <>
-            <HeaderAdmin></HeaderAdmin>
-            {/* Header start */}
-            <div className="container-fluid bg-breadcrumb">
-                <div className="container text-center" style={{ maxWidth: 900 }}>
-                    <h3 className="text-white display-3">All Booking</h3>
-                </div>
-            </div>
-            {/* Header End */}
-            <div className='container' >
-                <div className='row pt-5 pb-5'>
-                    <div className='table-responsive'>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Ground Name</th>
-                                    <th scope="col">Booking Id</th>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Cunstomer Contact</th>
-                                    <th scope="col">Booking Date</th>
-                                    <th scope="col">Booking Time Slot</th>
-                                    <th scope="col">Total Payable Amount</th>
-                                    <th scope="col">Booking Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {Booking && Booking.map((booking) => (
-                                    <tr>
-                                        <td scope="row">{booking?.turf?.name}</td>
-                                        <td scope="row">{booking?.bookingId}</td>
-                                        <td scope="row">{booking?.user?.name}</td>
-                                        <td scope="row">{booking?.user?.mobileNo}</td>
-                                        <td scope="row">{booking?.bookingDate}</td>
-                                        <td scope="row">{booking?.timeSlot}</td>
-                                        <td scope="row">cash...</td>
-                                        <td scope="row">pending...</td>
-                                        <td><button type='button' className='btn btn-danger'>Verify</button></td>
-                                    </tr>
-                                ))
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <Footer></Footer>
-        </>
-    )
+  return (
+    <>
+      <HeaderAdmin></HeaderAdmin>
+      {/* Header start */}
+      <div className="container-fluid bg-breadcrumb">
+        <div className="container text-center" style={{ maxWidth: 900 }}>
+          <h3 className="text-white display-3">All Booking</h3>
+        </div>
+      </div>
+      {/* Header End */}
+      <div className="container">
+        <div className="row pt-5 pb-5">
+          <div className="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Ground Name</th>
+                  <th scope="col">Booking Id</th>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Cunstomer Contact</th>
+                  <th scope="col">Booking Date</th>
+                  <th scope="col">Booking Time Slot</th>
+                  <th scope="col">payment type</th>
+                  {/* <th scope="col">Booking Status</th> */}
+                </tr>
+              </thead>
+              <tbody>
+                {Booking &&
+                  Booking.map((booking) => (
+                    <tr>
+                      <td scope="row">{booking?.turf?.name}</td>
+                      <td scope="row">{booking?.bookingId}</td>
+                      <td scope="row">{booking?.user?.name}</td>
+                      <td scope="row">{booking?.user?.mobileNo}</td>
+                      <td scope="row">{booking?.bookingDate}</td>
+                      <td scope="row">{booking?.timeSlot}</td>
+                      <td scope="row">cash...</td>
+                      {/* <td scope="row">{act} </td> */}
+                      <td>
+                        {/* <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={handleAction}
+                        >
+                          Verify
+                        </button> */}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import UserService from '../Services/UserService';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../common/Header';
@@ -34,6 +35,44 @@ export default function Register() {
   const mobileNo = useRef();
   const username = useRef();
   const password = useRef();
+  const password1 = useRef();
+
+  const handleValidation = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!inpval.Name) {
+      isValid = false;
+      errors.Name = 'Full Name is required';
+    }
+
+    if (!inpval.age) {
+      isValid = false;
+      errors.age = 'Age is required';
+    }
+
+    if (!inpval.mobileNo || inpval.mobileNo.length !== 10 || !/^\d+$/.test(inpval.mobileNo)) {
+      isValid = false;
+      errors.mobileNo = 'Mobile Number should be exactly 10 digits and contain only numbers';
+    }
+    if (!inpval.username) {
+      isValid = false;
+      errors.username = 'Username is required';
+    }
+
+    if (!inpval.password || !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(inpval.password)) {
+      isValid = false;
+      errors.password1 = 'Password should be 8 characters and include at least one special character, one alphabet, and one number';
+    }
+
+    if (inpval.password1 !== inpval.password) {
+      isValid = false;
+      errors.password = 'Password and Confirm Password do not match';
+    }
+
+    setValidationErrors(errors);
+    return isValid;
+  };
   const password1 = useRef();
 
   const handleValidation = () => {
