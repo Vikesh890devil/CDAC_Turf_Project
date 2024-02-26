@@ -102,7 +102,7 @@ export default function HomeAdmin() {
                                     need to be sure there isn't anything embarrassing hidden in the
                                     middle of text. All
                                 </p>
-                                <Link to="/login" className='btn btn-primary py-2 px-5 ' > Get Click </Link>
+                                {/* <Link to="/login" className='btn btn-primary py-2 px-5 ' > Get Click </Link> */}
                                 <br /><br />
                             </div>
                         </div>
@@ -167,24 +167,7 @@ export default function HomeAdmin() {
             </div>
 
             {/* Gallary End */}
-
-
-
-
-
-
-
-
-
             <Footer></Footer>
-
-
-
-
-
-
-
-
         </>
 
 

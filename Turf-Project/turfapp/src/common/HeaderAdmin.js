@@ -6,8 +6,9 @@ export default function HeaderAdmin() {
 
   const history = useNavigate();
   const logout = () => {
-    localStorage.removeItem("userlogin");
-    alert("User logged out Successfully");
+    //localStorage.removeItem("managerId");
+    sessionStorage.removeItem("managerId");
+    alert("Admin logged out Successfully");
     history("/");
   }
   return (
@@ -46,15 +47,15 @@ export default function HeaderAdmin() {
               <Link to="/allBooking" className="nav-item nav-link">
                 AllBooking
               </Link>
-              <Link to="/groundDetail" className="nav-item nav-link">
+              <Link to="/ground" className="nav-item nav-link">
                 Ground Detail
               </Link>
               <Link to="/groundTable" className="nav-item nav-link">
                 Ground Table
               </Link>
-              <Link to="/displayAllUser" className="nav-item nav-link">
+              {/* <Link to="/displayAllUser" className="nav-item nav-link">
                 All User
-              </Link>
+              </Link> */}
               </div>
               <Link to="#" className="btn btn-primary rounded-pill py-2 px-4 ms-lg-4" onClick={logout}>
               <small className="me-3" >

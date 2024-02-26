@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function HeaderUser() {
   const history = useNavigate();
   const logout = () => {
-    localStorage.removeItem("userId");
+   // localStorage.removeItem("userId");
+    sessionStorage.removeItem("userId");
     alert("User logged out Successfully");
     history("/");
 
@@ -41,7 +42,7 @@ export default function HeaderUser() {
               <Link to="/" className="nav-item nav-link ">
                 Home
               </Link>
-              <Link to="/about" className="nav-item nav-link">
+              {/* <Link to="/about" className="nav-item nav-link">
                 About
               </Link>
               <Link to="/services" className="nav-item nav-link">
@@ -49,7 +50,7 @@ export default function HeaderUser() {
               </Link>
               <Link to="/contact" className="nav-item nav-link">
                 Contact
-              </Link>
+              </Link> */}
               <Link to="/turf" className="nav-item nav-link">
                 Book Truf
               </Link>

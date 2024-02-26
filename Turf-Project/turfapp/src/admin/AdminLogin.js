@@ -12,6 +12,7 @@ export default function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const Admin = {
       username: username.current.value,
       password: password.current.value,
@@ -22,9 +23,10 @@ export default function AdminLogin() {
       const result=res.data;
       if (result.username === Admin.username && result.password === Admin.password) {
          alert("success full login");
-         localStorage.setItem("managerId", JSON.stringify(result.managerId));
+         sessionStorage.setItem("managerId",JSON.stringify(result.managerId))
+        // localStorage.setItem("managerId", JSON.stringify(result.managerId));
         // console.log(result.managerId);
-         history("/allBooking",)
+         history("/homeadmin",)
       } else {
         alert("failed to login");
       }
@@ -56,7 +58,7 @@ export default function AdminLogin() {
               />
 
             </div>
-            <div className="col-lg-6 col-md-6">
+            <div className="col-lg-6 col-md-6" >
               <div className="login_part_form">
                 <div className="login_part_form_iner">                  
                   <form

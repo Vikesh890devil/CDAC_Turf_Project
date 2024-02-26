@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import HeaderUser from '../common/HeaderUser'
 import Footer from '../common/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 
 
 export default function TurfBooking() {
+    const history = useNavigate();
     const URL = 'http://localhost:6162';
     const [groumd, setTurfDetails] = useState([]);
     const [Review, setReviewDetails] = useState([]);
 
     const [userid, setUserid] = useState();
     const [turfId, setturfid] = useState();
-    // const [tId, setturftId] = useState();
 
     const Slot = useRef();
     const date = useRef();
@@ -31,13 +31,25 @@ export default function TurfBooking() {
             alert('Error saving data!');
         }
     }
+    const BookingPage = () => {
+        // const getusers = localStorage.getItem("userId");
+        const getusers = sessionStorage.getItem("userId")
+        if (getusers && getusers.length > 0) {
+            history("/turfBooking");
+        } else {
+            history("/");
+        }
+    }
+
 
     useEffect(() => {
-        const resuserid = localStorage.getItem("userId");
-        const resturfrid = localStorage.getItem("turfId");
+        BookingPage();
+        //const resuserid = localStorage.getItem("userId");
+        //const resturfrid = localStorage.getItem("turfId");
+        const resuserid = sessionStorage.getItem("userId");
+        const resturfrid = sessionStorage.getItem("turfId");
         setUserid(resuserid);
         setturfid(resturfrid);
-        // setturftId(resturfrid);
 
 
         axios.get(`${URL}/get-one/${resturfrid}`).then((res) => {
@@ -63,8 +75,16 @@ export default function TurfBooking() {
             formData.append('slot', Slot.current.value);
             formData.append('date', date.current.value);
 
-            await axios.post(`${URL}/add-booking/${userid}/${turfId}`, formData);
-            alert('Data saved successfully!');
+            await axios.post(`${URL}/add-booking/${userid}/${turfId}`, formData).then((response) => {
+                console.log(response.status);
+                if (response.status === 200) {
+                    alert('Data saved successfully!');
+                } else {
+                    alert("this is already booked!");
+                }
+
+            })
+
         } catch (error) {
             alert('Error saving data!');
             console.error(error);
@@ -183,7 +203,7 @@ export default function TurfBooking() {
 
                     <div className='col-xl-3 col-md-12 bg-light g-2 rounded'>
                         <div className='container'>
-                            <div className='row overflow-scroll' style={{height:"30rem"}}>
+                            <div className='row overflow-scroll' style={{ height: "30rem" }}>
                                 <div className='col-12'>
                                     <div className="blog-content  py-4  mt-2">
                                         {Review.map((review) => (
@@ -195,7 +215,7 @@ export default function TurfBooking() {
                                             </tr>
                                         ))
                                         }
-                                        
+
                                     </div>
                                 </div>
                             </div>

@@ -8,11 +8,12 @@ export default function MyBooking() {
     const URL = 'http://localhost:6162';
     const [MyBook, setBooking] = useState([]);
     useEffect(() => {
-        const resuserid = localStorage.getItem("userId");
-        console.log(resuserid);
+        //const resuserid = localStorage.getItem("userId");
+        const resuserid = sessionStorage.getItem("userId");
+       // console.log(resuserid);
         axios.get(`${URL}/get-user-bookings/${resuserid}`).then((res) => {
             setBooking(res.data);
-            console.log(res.data);
+            //console.log(res.data);
         }).catch(error => {
             console.log(error);
         })
@@ -42,13 +43,13 @@ export default function MyBooking() {
                                     <th scope="col">Booking Time Slot</th>
                                     <th scope="col">Total Payable Amount</th>
                                     <th scope="col">Booking Status</th>
-                                    <th scope="col">Action</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 {MyBook && MyBook.map((booking) => (
                                     <tr>
-                                     
+
                                         <td scope="row">{booking?.turf?.name}</td>
                                         <td scope="row">{booking?.bookingId}</td>
                                         <td scope="row">{booking?.user?.name}</td>
@@ -57,7 +58,7 @@ export default function MyBooking() {
                                         <td scope="row">{booking?.timeSlot}</td>
                                         <td scope="row">{booking?.turf?.price}</td>
 
-                                        <td><button type='button' className='btn btn-danger'>Cancle Booking</button></td>
+                                        <td><button type='button' className='btn btn-danger'>Conform</button></td>
                                     </tr>
 
                                 ))

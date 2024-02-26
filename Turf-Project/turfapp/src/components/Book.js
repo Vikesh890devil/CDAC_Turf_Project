@@ -12,7 +12,8 @@ export default function Book() {
     }, []);
 
     const BookingPage = () => {
-        const getusers = localStorage.getItem("userId");
+        // const getusers = localStorage.getItem("userId");
+        const  getusers=sessionStorage.getItem("userId");
         if (getusers && getusers.length > 0) {
             const user = JSON.parse(getusers);
             setlogindata(user);

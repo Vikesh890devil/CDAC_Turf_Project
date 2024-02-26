@@ -2,22 +2,35 @@ import React, { useEffect, useState } from 'react'
 import HeaderAdmin from '../common/HeaderAdmin'
 import Footer from '../common/Footer'
 import BookingService from '../Services/Booking';
+import { useNavigate } from 'react-router-dom';
 
 export default function AllBooking() {
 
     const [Booking, setBooking] = useState([]);
+    const history=useNavigate();
 
     const getallBookings = async () => {
         await BookingService.getBooking().then((res) => {
             setBooking(res.data);
-            console.log(res.data);
+           // console.log(res.data);
         }).catch(error => {
             console.log(error);
         })
     }
 
+    const BookingPage = () => {
+        const getusers=sessionStorage.getItem("managerId");
+        //const getusers = localStorage.getItem("managerId");
+        if (getusers && getusers.length > 0) {
+            //const user = JSON.parse(getusers);
+            history("/allBooking");
+        } else {
+            history("/adminLogin");
+        }
+    }
     useEffect(() => {
         getallBookings();
+        BookingPage();
     }, []);
 
 

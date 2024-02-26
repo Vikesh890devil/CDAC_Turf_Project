@@ -62,7 +62,7 @@ const router = createBrowserRouter([
             element:<AllBooking />
           },
           {
-            path:"/groundDetail",
+            path:"/ground",
             element:<Ground />
           },
           {
