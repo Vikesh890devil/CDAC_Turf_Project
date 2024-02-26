@@ -56,7 +56,7 @@ export default function AdminLogin() {
               />
 
             </div>
-            <div className="col-lg-6 col-md-6">
+            <div className="col-lg-6 col-md-6" >
               <div className="login_part_form">
                 <div className="login_part_form_iner">                  
                   <form

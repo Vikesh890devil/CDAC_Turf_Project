@@ -3,13 +3,25 @@ import HeaderAdmin from '../common/HeaderAdmin'
 import Footer from '../common/Footer'
 import GroundService from '../Services/Ground';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function GroundTable() {
+    const history=useNavigate();
     const URL = 'http://localhost:6162';
     const [Ground, setTurfDetails] = useState([]);
 
+    const BookingPage = () => {
+        const getusers = localStorage.getItem("managerId");
+        if (getusers && getusers.length > 0) {
+            //const user = JSON.parse(getusers);
+            history("/groundTable");
+        } else {
+            history("/adminLogin");
+        }
+      }
    
   useEffect(() => {
+    BookingPage();
     const fetchAllTurfDetails = async () => {
       try {
         const response = await axios.get(URL + '/get-allTurf');
@@ -45,11 +57,11 @@ export default function GroundTable() {
                         <thead>
                             <tr>
                                 
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Ground Width</th>
                                 <th scope="col">Ground Length</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Image</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -58,12 +70,12 @@ export default function GroundTable() {
                         { Ground.map((groumd)=>(
                             <tr>
                                 
+                                <td scope="row">
+                                <img src={"TurfImage/TurfImage/"+groumd.image} style={{width:"7rem"}} /></td>
                                 <td scope="row">{groumd.name}</td>
                                 <td scope="row">{groumd.width}</td>
                                 <td scope="row">{groumd.length}</td>
                                 <td scope="row">{groumd.price}</td>
-                                <td scope="row">
-                                <img src={"TurfImage/TurfImage/"+groumd.image} style={{width:"7rem"}} /></td>
                                 <td scope="row">{groumd.description}</td>
                                 <td><button type='button' className='btn btn-danger' onClick={() => deleteTurf(groumd.turfId)}>Delete</button></td>
                             </tr>

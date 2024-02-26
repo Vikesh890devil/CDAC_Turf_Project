@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import HeaderUser from '../common/HeaderUser'
 import Footer from '../common/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 
 
 export default function TurfBooking() {
+    const history=useNavigate();
     const URL = 'http://localhost:6162';
     const [groumd, setTurfDetails] = useState([]);
     const [Review, setReviewDetails] = useState([]);
@@ -31,8 +32,20 @@ export default function TurfBooking() {
             alert('Error saving data!');
         }
     }
+    const BookingPage = () => {
+        const getusers = localStorage.getItem("userId");
+        if (getusers && getusers.length > 0) {
+            //const user = JSON.parse(getusers);
+            history("/turfBooking");
+        } else {
+            history("/");
+        }
+      }
+    
 
     useEffect(() => {
+        BookingPage();
+
         const resuserid = localStorage.getItem("userId");
         const resturfrid = localStorage.getItem("turfId");
         setUserid(resuserid);

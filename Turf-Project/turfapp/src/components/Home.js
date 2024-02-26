@@ -124,6 +124,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+
+           
             {/* Booking turf end   */}
 
 
@@ -139,6 +142,36 @@ export default function Home() {
                         <div className="tab-content">
                             <div id="tab-1" className="tab-pane fade show p-0 active">
                                 <div className="row g-4">
+                                    <div className="col-lg-4">
+                                        <div className="destination-img">
+                                            <img
+                                                className="img-fluid rounded w-100"
+                                                src="img/socer10.jpeg"
+                                                alt="" style={{ width: '100%', height: '300px' }}
+                                            />
+
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-4">
+                                        <div className="destination-img">
+                                            <img
+                                                className="img-fluid rounded w-100"
+                                                src="img/socer11.jpg"
+                                                alt="" style={{ width: '100%', height: '300px' }}
+                                            />
+
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-4">
+                                        <div className="destination-img">
+                                            <img
+                                                className="img-fluid rounded w-100"
+                                                src="img/socer12.jpg"
+                                                alt="" style={{ width: '100%', height: '300px' }}
+                                            />
+                                        </div>
+                                    </div>
+
                                     <div className="col-lg-4">
                                         <div className="destination-img">
                                             <img

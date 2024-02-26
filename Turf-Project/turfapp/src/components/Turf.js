@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../common/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import HeaderUser from '../common/HeaderUser'
 import GroundService from '../Services/Ground';
 import axios from 'axios';
 
 export default function About() {
+    const history=useNavigate();
 
     const URL = 'http://localhost:6162';
     const [Ground, setTurfDetails] = useState([]);
     const [turfId,setturfId]=useState();
-
+ 
+    const BookingPage = () => {
+        const getusers = localStorage.getItem("userId");
+        if (getusers && getusers.length > 0) {
+            //const user = JSON.parse(getusers);
+            history("/turf");
+        } else {
+            history("/");
+        }
+      }
+    
 
     useEffect(() => {
+        BookingPage();
         const fetchAllTurfDetails = async () => {
             try {
                 const response = await axios.get(URL + '/get-allTurf');
@@ -64,10 +76,10 @@ export default function About() {
                                 <div className="blog-item" >
                                     <div className="blog-img" >
 
-                                        <div className="blog-img-inner" style={{height:"25rem"}}>
+                                        <div className="blog-img-inner">
                                             <img src={'TurfImage/TurfImage/' + groumd.image}
                                                 className="img-fluid w-100 rounded-top"
-
+                                                style={{height:"25rem"}}
                                                 alt="Image"
 
                                             />
