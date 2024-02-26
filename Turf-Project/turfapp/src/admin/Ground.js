@@ -6,6 +6,7 @@ import GroundService from "../Services/Ground";
 import axios from "axios";
 
 export default function Ground() {
+  const history=useNavigate();
   const URL ='http://localhost:6162';
 
   const [file, setFile] = useState(null);
@@ -41,9 +42,22 @@ export default function Ground() {
       console.error(error);
     }
   };
+
+
+
+  const BookingPage = () => {
+    const getusers = localStorage.getItem("managerId");
+    if (getusers && getusers.length > 0) {
+        //const user = JSON.parse(getusers);
+        history("/ground");
+    } else {
+        history("/adminLogin");
+    }
+  }
   useEffect(() => {
     const manId = localStorage.getItem("managerId");
     setManagerId(manId);
+    BookingPage();
   });
   return (
     <>
@@ -139,8 +153,8 @@ export default function Ground() {
               <div className="col-12">
                 <button
                   type="submit"
-                  className="btn btn-primary" onClick={handleSubmit}
-                  style={{ width: "calc(100% )" }}
+                  className="btn btn-primary rounded-pill " onClick={handleSubmit}
+                  style={{ width: "100%" }}
                 >
                   Add Ground
                 </button>

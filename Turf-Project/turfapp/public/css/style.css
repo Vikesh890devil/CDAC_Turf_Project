@@ -1,3 +1,18 @@
+input[type="text"],[type="password"],[type="number"],[type="checkbox"],[type="radio"],button,link,label {
+    font-family: serif !important;
+    font-size: 1.1rem;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: serif !important;
+}
+p{
+    font-size: 1.3rem;
+    font-family: serif !important;
+}
+
+
+
 
 /*** Booking Start ***/
 
@@ -88,11 +103,13 @@
 .btn {
     font-weight: 600;
     transition: .5s;
+    
 }
 
 .btn-square {
-    width: 32px;
+    width: 3rem;
     height: 32px;
+    
 }
 
 .btn-sm-square {
@@ -129,6 +146,7 @@
 .btn.btn-primary:hover {
     box-shadow: inset 300px 0 0 0 var(--bs-light) !important;
     color: var(--bs-primary) !important;
+    
 }
 
 .btn.btn-light {
@@ -138,14 +156,15 @@
 .btn.btn-light:hover {
     box-shadow: inset 300px 0 0 0 var(--bs-primary);
     color: var(--bs-light) !important;
+    
 }
 
 .btn-hover {
-    transition: 0.5s;
+    transition: 0.5s;   
 }
 
 .btn-hover:hover {
-    color: var(--bs-secondary) !important;
+    color: var(--bs-secondary) !important;   
 }
 
 /*** Section Title Start ***/
