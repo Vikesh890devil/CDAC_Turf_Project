@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../common/Footer'
 import { Link, useNavigate } from 'react-router-dom'
-import { Link, useNavigate } from 'react-router-dom'
 import HeaderUser from '../common/HeaderUser'
 import GroundService from '../Services/Ground';
 import axios from 'axios';
